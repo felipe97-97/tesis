@@ -1837,7 +1837,7 @@ pre code {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #d1d3e2;
-  border-radius: 0.35rem;
+  border-radius: 10rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -11278,4 +11278,95 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+.custom-div-tesis-gradient {
+  width: 100%;
+  height: auto;
+  background-color: #4e73df !important;
+  background-image: linear-gradient(135deg, #4e73df 0%, rgba(128, 57, 218, 0.8) 100%) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 8vw;
+  margin-bottom: 20px;
+  color: var(--white);
+  border-radius: 0.35rem;
+}
+
+.button-icon-tesis {
+  display: flex;
+  float:right;
+  margin-top: 0;
+}
+
+.button-icon-tesis-text {
+  margin: 15px;
+  cursor: default;
+}
+
+@media (max-width: 576px) {
+  .custom-div-tesis-gradient {
+    padding: 1vh 5vw;
+  }
+  .custom-div-tesis-gradient-image {
+    display: none;
+  }
+  .button-icon-tesis-text {
+    display: none;
+  }
+}
+
+.fix-tesis-form {
+  display: block;
+  width: 100%;
+  height: 10vh;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6e707e;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d1d3e2;
+  border-radius: 1rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.empty-ficha-tesis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.height-card-tesis {
+  height: 21em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.card-flex-tesis {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-footer-tesis {
+  float: right;
+}
+
+div::-webkit-scrollbar {
+  width: .4em;
+}
+ 
+div::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+div::-webkit-scrollbar-thumb {
+  background-color: #4e73df;
+  outline: 1px solid slategrey;
 }
