@@ -15,7 +15,10 @@ class CreateAgendasTable extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
+            $table->string('title');
+            $table->date('day');
+            $table->time('start_date');
+            $table->time('end_date');
             $table->timestamps();
 
             //Declaración de clave foranea//

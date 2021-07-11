@@ -7,14 +7,32 @@ use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function calendar_all()
     {
-        //
+        $agendas = Agenda::with(['paciente','personal'])->get();
+
+        return response()->json([
+            'response' => $agendas,
+        ], 200);
+    }
+
+    public function index()
+    {   
+        return view('agenda.index');
+    }
+
+    public function delete($id)
+    {
+        $agenda = Agenda::find($id);
+        $agenda->delete();
+        return redirect('/agenda')->with('success', 'Fecha eliminada correctamente');
     }
 
     /**
@@ -22,20 +40,18 @@ class AgendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
+        $agenda = new Agenda();
+        $agenda->title = $request->input('tipo');
+        $agenda->day = $request->input('dia');
+        $agenda->start_date = $request->input('inicio');
+        $agenda->end_date = $request->input('fin');
+        $agenda->id_paciente = $request->input('id_paciente');
+        $agenda->id_personal = $request->input('id_personal');
+        $agenda->save();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return redirect('agenda');
     }
 
     /**

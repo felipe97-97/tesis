@@ -13,5 +13,5 @@ class Radiografia extends Model
 
     protected $table = 'radiografias';
 
-    protected $filleable = ['fecha','archivo','id_ficha'];
+    protected $filleable = ['titulo','fecha','archivo','id_ficha'];
 }

@@ -14,4 +14,11 @@ class EvaluacionClinica extends Model
     protected $table = 'evaluacion_clinicas';
 
     protected $filleable = ['fecha','actividad','id_ficha'];
+
+
+    //relaciones
+
+    public function ficha() {
+    	return $this->belongsTo(Ficha::class, 'id_ficha', 'id');
+    }
 }

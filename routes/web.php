@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\FichaController;
-use App\Http\Controllers\Anamnesis;
-use App\Http\Controllers\AnamnesisOdontologica;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +31,16 @@ Route::get('anamnesis_odontologica/detail/{id}', 'App\Http\Controllers\Anamnesis
 Route::get('anamnesis_odontologica/delete/{id}', 'App\Http\Controllers\AnamnesisOdontologicaController@delete')->name('anamnesis_odontologica.delete');
 Route::get('anamnesis_odontologica/edit/{id}', 'App\Http\Controllers\AnamnesisOdontologicaController@update')->name('anamnesis_odontologica.update');
 Route::get('anamnesis_odontologica/create', 'App\Http\Controllers\AnamnesisOdontologicaController@create');
+
+Route::get('odontograma/detail/{id}', 'App\Http\Controllers\OdontogramaController@detail');
+Route::get('odontograma/edit/{id}', 'App\Http\Controllers\OdontogramaController@update')->name('odontograma.update');
+
+Route::get('agenda', 'App\Http\Controllers\AgendaController@index');
+Route::get('agenda/create', 'App\Http\Controllers\AgendaController@create');
+Route::get('agenda/delete/{id}', 'App\Http\Controllers\AgendaController@delete')->name('agenda.delete');
+
+Route::get('evaluacion_clinica/new/{id}', 'App\Http\Controllers\EvaluacionClinicaController@new');
+Route::get('evaluacion_clinica/detail/{id}', 'App\Http\Controllers\EvaluacionClinicaController@detail');
+Route::get('evaluacion_clinica/delete/{id}', 'App\Http\Controllers\EvaluacionClinicaController@delete')->name('evaluacion_clinica.delete');
+Route::get('evaluacion_clinica/edit/{id}', 'App\Http\Controllers\EvaluacionClinicaController@update')->name('evaluacion_clinica.update');
+Route::get('evaluacion_clinica/create', 'App\Http\Controllers\EvaluacionClinicaController@create');

@@ -11370,3 +11370,1015 @@ div::-webkit-scrollbar-thumb {
   background-color: #4e73df;
   outline: 1px solid slategrey;
 }
+
+
+/*!
+ * CSS para odontograma
+ */
+
+ .odontograma-circle {
+  background-image: url('../img/odontograma/circle.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .odontograma-circle-2 {
+  background-image: url('../img/odontograma/circle.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 15px;
+  transform: scaleY(-1);
+ }
+
+ .odontograma-1-1 {
+  background-image: url('../img/odontograma/1-1.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-1-2 {
+  background-image: url('../img/odontograma/1-2.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-1-3 {
+  background-image: url('../img/odontograma/1-3.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-1-4 {
+  background-image: url('../img/odontograma/1-4.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-1-5 {
+  background-image: url('../img/odontograma/1-5.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-1-6 {
+  background-image: url('../img/odontograma/1-6.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-1-7 {
+  background-image: url('../img/odontograma/1-7.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-1-8 {
+  background-image: url('../img/odontograma/1-8.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-2-1 {
+  background-image: url('../img/odontograma/2-1.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-2-2 {
+  background-image: url('../img/odontograma/2-2.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-2-3 {
+  background-image: url('../img/odontograma/2-3.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-2-4 {
+  background-image: url('../img/odontograma/2-4.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-2-5 {
+  background-image: url('../img/odontograma/2-5.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-2-6 {
+  background-image: url('../img/odontograma/2-6.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-2-7 {
+  background-image: url('../img/odontograma/2-7.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-2-8 {
+  background-image: url('../img/odontograma/2-8.png');
+  background-size: 88px;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-3-1 {
+  background-image: url('../img/odontograma/3-1.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-3-2 {
+  background-image: url('../img/odontograma/3-2.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-3-3 {
+  background-image: url('../img/odontograma/3-3.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-3-4 {
+  background-image: url('../img/odontograma/3-4.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-3-5 {
+  background-image: url('../img/odontograma/3-5.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-3-6 {
+  background-image: url('../img/odontograma/3-6.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-3-7 {
+  background-image: url('../img/odontograma/3-7.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-3-8 {
+  background-image: url('../img/odontograma/3-8.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-4-1 {
+  background-image: url('../img/odontograma/4-1.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-4-2 {
+  background-image: url('../img/odontograma/4-2.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-4-3 {
+  background-image: url('../img/odontograma/4-3.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-4-4 {
+  background-image: url('../img/odontograma/4-4.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-4-5 {
+  background-image: url('../img/odontograma/4-5.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-4-6 {
+  background-image: url('../img/odontograma/4-6.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-4-7 {
+  background-image: url('../img/odontograma/4-7.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-4-8 {
+  background-image: url('../img/odontograma/4-8.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .odontograma-5-1 {
+  background-image: url('../img/odontograma/5-1.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-5-2 {
+  background-image: url('../img/odontograma/5-2.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-5-3 {
+  background-image: url('../img/odontograma/5-3.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-5-4 {
+  background-image: url('../img/odontograma/5-4.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-5-5 {
+  background-image: url('../img/odontograma/5-5.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-6-1 {
+  background-image: url('../img/odontograma/6-1.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-6-2 {
+  background-image: url('../img/odontograma/6-2.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-6-3 {
+  background-image: url('../img/odontograma/6-3.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-6-4 {
+  background-image: url('../img/odontograma/6-4.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-6-5 {
+  background-image: url('../img/odontograma/6-5.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-7-1 {
+  background-image: url('../img/odontograma/7-1.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-7-2 {
+  background-image: url('../img/odontograma/7-2.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-7-3 {
+  background-image: url('../img/odontograma/7-3.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-7-4 {
+  background-image: url('../img/odontograma/7-4.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-7-5 {
+  background-image: url('../img/odontograma/7-5.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-8-1 {
+  background-image: url('../img/odontograma/8-1.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-8-2 {
+  background-image: url('../img/odontograma/8-2.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-8-3 {
+  background-image: url('../img/odontograma/8-3.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-8-4 {
+  background-image: url('../img/odontograma/8-4.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .odontograma-8-5 {
+  background-image: url('../img/odontograma/8-5.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .div-odontograma-hover:hover {
+    border: 1px solid #4e73df;
+    border-radius: 15px;
+ }
+
+ .flipX-circle-tesis {
+  transform: scaleX(-1);
+ }
+
+ .resina-desadaptada-border {
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+ }
+
+ .implante-bueno {
+  background-image: url('../img/odontograma/implante.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .implante-malo-inferior {
+  background-image: url('../img/odontograma/implante-malo.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .implante-malo {
+  background-image: url('../img/odontograma/implante-malo.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .implante-bueno-inferior {
+  background-image: url('../img/odontograma/implante.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .perno-bueno {
+  background-image: url('../img/odontograma/perno.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .perno-bueno-inferior {
+  background-image: url('../img/odontograma/perno.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .perno-malo {
+  background-image: url('../img/odontograma/perno-malo.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .perno-malo-inferior {
+  background-image: url('../img/odontograma/perno-malo.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .diente-sano {
+  background-image: url('../img/odontograma/sano.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .diente-sano-inferior {
+  background-image: url('../img/odontograma/sano.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .caries {
+  background-image: url('../img/odontograma/caries.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .caries-inferior {
+  background-image: url('../img/odontograma/caries.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .resina-adaptada {
+  background-image: url('../img/odontograma/resina-adaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .resina-desadaptada-inferior {
+  background-image: url('../img/odontograma/resina-desadaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .resina-desadaptada {
+  background-image: url('../img/odontograma/resina-desadaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .resina-adaptada-inferior {
+  background-image: url('../img/odontograma/resina-adaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .amalgama-adaptada {
+  background-image: url('../img/odontograma/amalgama-adaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .amalgama-adaptada-inferior {
+  background-image: url('../img/odontograma/amalgama-adaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .amalgama-desadaptada {
+  background-image: url('../img/odontograma/amalgama-desadaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .amalgama-desadaptada-inferior {
+  background-image: url('../img/odontograma/amalgama-desadaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .sellante-bueno {
+  background-image: url('../img/odontograma/sellante-bueno.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .sellante-bueno-inferior {
+  background-image: url('../img/odontograma/sellante-bueno.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .sellante-desadaptado {
+  background-image: url('../img/odontograma/sellante-malo.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .sellante-desadaptado-inferior {
+  background-image: url('../img/odontograma/sellante-malo.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+
+ .fractura {
+  background-image: url('../img/odontograma/fractura.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .fractura-inferior {
+  background-image: url('../img/odontograma/fractura.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .diente-ausente {
+  background-image: url('../img/odontograma/diente-ausente.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .diente-ausente-inferior {
+  background-image: url('../img/odontograma/diente-ausente.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+ .provisional {
+  background-image: url('../img/odontograma/provisional.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .provisional-inferior {
+  background-image: url('../img/odontograma/provisional.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+ .extracción-indicada {
+  background-image: url('../img/odontograma/extraccion-indicada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .extracción-indicada-inferior {
+  background-image: url('../img/odontograma/extraccion-indicada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .corona-buena {
+  background-image: url('../img/odontograma/corona-buena.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .corona-buena-inferior {
+  background-image: url('../img/odontograma/corona-buena.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .corona-desadaptada {
+  background-image: url('../img/odontograma/corona-desadaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .corona-desadaptada-inferior {
+  background-image: url('../img/odontograma/corona-desadaptada.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+
+ .endodoncia-buena {
+  background-image: url('../img/odontograma/endodoncia-buena.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .endodoncia-buena-inferior {
+  background-image: url('../img/odontograma/endodoncia-buena.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+ .endodoncia-mala {
+  background-image: url('../img/odontograma/endodoncia-mala.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .endodoncia-mala-inferior {
+  background-image: url('../img/odontograma/endodoncia-mala.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+ 
+ .póntico {
+  background-image: url('../img/odontograma/pontico.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+ }
+ .póntico-inferior {
+  background-image: url('../img/odontograma/pontico.png');
+  background-size: 88px;
+  background-repeat: no-repeat;
+  height: 190px;
+  width: 88px;
+  transform: rotate(180deg);
+ }
+ 
+
+
+.color-caries {
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+}
+
+.color-resina-adaptada {
+  filter: invert(65%) sepia(76%) saturate(1208%) hue-rotate(156deg) brightness(90%) contrast(95%);
+}
+.color-resina-desadaptada {
+  filter: invert(65%) sepia(76%) saturate(1208%) hue-rotate(156deg) brightness(90%) contrast(95%) drop-shadow(0px 0px 2px red);
+}
+
+.color-amalgama-adaptada {
+  filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8);
+}
+.color-amalgama-desadaptada {
+  filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(700%) contrast(0.8) drop-shadow(0px 0px 2px red);
+}
+.color-diente-sano {
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8);
+}
+.color-sellante-bueno {
+  filter: invert(8%) sepia(96%) saturate(5373%) hue-rotate(280deg) brightness(89%) contrast(95%);
+}
+.color-sellante-desadaptado {
+  filter: invert(8%) sepia(96%) saturate(5373%) hue-rotate(280deg) brightness(89%) contrast(95%) drop-shadow(0px 0px 2px red);
+}
+.color-provisional {
+  filter: invert(81%) sepia(70%) saturate(1703%) hue-rotate(359deg) brightness(1103%) contrast(104%);
+}
+.color-corona-buena {
+  filter: drop-shadow(0px 0px 3px #4154FC);
+}
+.color-corona-desadaptada {
+  filter: drop-shadow(0px 0px 3px red);
+}
+.color-póntico {
+  filter: drop-shadow(0px 0px 3px yellow);
+}
+
+
+
+ .a {
+  background-image: url('../img/odontograma/a.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bcdef {
+  background-image: url('../img/odontograma/a.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+
+ .b {
+  background-image: url('../img/odontograma/b.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .c {
+  background-image: url('../img/odontograma/c.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .d {
+  background-image: url('../img/odontograma/d.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .e {
+  background-image: url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .f {
+  background-image: url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bc {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/c.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bd {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/d.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .be {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bf {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .cd {
+  background-image: url('../img/odontograma/c.png'), url('../img/odontograma/d.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .ce {
+  background-image: url('../img/odontograma/c.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .cf {
+  background-image: url('../img/odontograma/c.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .de {
+  background-image: url('../img/odontograma/d.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .df {
+  background-image: url('../img/odontograma/d.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .ef {
+  background-image: url('../img/odontograma/e.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bcd {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/c.png'), url('../img/odontograma/d.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bde {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/d.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bef {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/e.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bce {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/c.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bdf {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/d.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bde {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/d.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .cdf {
+  background-image: url('../img/odontograma/c.png'), url('../img/odontograma/d.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .cde {
+  background-image: url('../img/odontograma/c.png'), url('../img/odontograma/d.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .cef {
+  background-image: url('../img/odontograma/c.png'), url('../img/odontograma/e.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .def {
+  background-image: url('../img/odontograma/d.png'), url('../img/odontograma/e.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bcde {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/c.png'), url('../img/odontograma/d.png'), url('../img/odontograma/e.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bcdf {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/c.png'), url('../img/odontograma/d.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bcef {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/c.png'), url('../img/odontograma/e.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .bdef {
+  background-image: url('../img/odontograma/b.png'), url('../img/odontograma/d.png'), url('../img/odontograma/e.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }
+ .cdef {
+  background-image: url('../img/odontograma/c.png'), url('../img/odontograma/d.png'), url('../img/odontograma/e.png'), url('../img/odontograma/f.png');
+  background-size: 70px;
+  height: 70px;
+  width: 70px;
+  margin-top: 5px;
+ }

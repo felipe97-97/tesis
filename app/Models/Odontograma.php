@@ -13,5 +13,12 @@ class Odontograma extends Model
 
     protected $table = 'odontogramas';
 
-    protected $filleable = ['pieza','estado','id_ficha'];
+    protected $filleable = ['numero','pieza','estado','estado_clase','profundidad','profundidad_clase','id_ficha'];
+
+
+     //relaciones
+
+     public function ficha() {
+    	return $this->belongsTo(Ficha::class, 'id_ficha', 'id');
+    }
 }

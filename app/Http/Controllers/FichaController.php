@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ficha;
 use App\Models\Paciente;
+use App\Models\Odontograma;
 use DB;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,25 @@ class FichaController extends Controller
         $ficha = new Ficha();
         $ficha->id_paciente = $id_paciente->id;
         $ficha->save();
+
+        $piezas = [
+            '1-8','1-7','1-6','1-5','1-4','1-3','1-2','1-1',
+            '2-1','2-2','2-3','2-4','2-5','2-6','2-7','2-8',
+            '4-8','4-7','4-6','4-5','4-4','4-3','4-2','4-1',
+            '3-1','3-2','3-3','3-4','3-5','3-6','3-7','3-8',
+            '5-5','5-4','5-3','5-2','5-1',
+            '6-1','6-2','6-3','6-4','6-5',
+            '8-5','8-4','8-3','8-2','8-1',
+            '7-1','7-2','7-3','7-4','7-5',
+        ];
+
+        for ($i=0; $i < 52; $i++) {
+            $odontograma = new Odontograma();
+            $odontograma->numero = $i + 1;
+            $odontograma->pieza = $piezas[$i];
+            $odontograma->id_ficha = $id_paciente->ficha->id;
+            $odontograma->save();
+        }
 
         return redirect('/fichas/detail/'.$id_paciente->id)->with('success', 'Ficha creada correctamente');
     }

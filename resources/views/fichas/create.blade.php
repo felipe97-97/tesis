@@ -36,7 +36,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Formulario Datos Personales</h6>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="create">
+                    <form method="GET" action="create">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -56,13 +56,14 @@
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Rut</label>
-                                    <input class="form-control form-control-user" name="rut" type="text" placeholder="Juan Alberto">
+                                    <input class="form-control form-control-user" name="rut" type="text" placeholder="1.234.567-8">
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlSelect1">Sexo</label>
                                     <select class="form-control form-control-user" name="sexo">
+                                        <option defaultValue hidden>Seleccione Sexo</option>
                                         <option>Mujer</option>
                                         <option>Hombre</option>
                                         <option>Otro</option>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EvaluacionClinica;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class EvaluacionClinicaController extends Controller
@@ -17,26 +18,41 @@ class EvaluacionClinicaController extends Controller
         //
     }
 
+    public function new($id)
+    {
+        $paciente = Paciente::find($id);
+        return view('evaluacion_clinica/create', compact('paciente'));
+    }
+
+    public function detail($id)
+    {
+        $evaluacionClinica = EvaluacionClinica::find($id);
+        return view('evaluacion_clinica/detail', compact('evaluacionClinica'));
+    }
+
+    public function delete($id)
+    {
+        $evaluacionClinica = EvaluacionClinica::find($id);
+        $evaluacionClinica->delete();
+        return redirect('/fichas/detail/'.$evaluacionClinica->ficha->paciente->id)->with('success', 'Evaluación Clínica eliminada correctamente');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $evaluacion = new EvaluacionClinica();
+        $evaluacion->fecha = $request->input('fecha');
+        $evaluacion->actividad = $request->input('actividades');
+        $evaluacion->id_ficha = $request->input('id');
+        $evaluacion->save();
+
+        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Anamnesis agregada correctamente');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -69,7 +85,12 @@ class EvaluacionClinicaController extends Controller
      */
     public function update(Request $request, EvaluacionClinica $evaluacionClinica)
     {
-        //
+        $evaluacionClinica = EvaluacionClinica::find($request->input('id_evaluacionClinica'));
+        $evaluacionClinica->fecha = $request->input('fecha');
+        $evaluacionClinica->actividad = $request->input('actividades');
+        $evaluacionClinica->update();
+
+        return redirect('/evaluacion_clinica/detail/' . $request->input('id_evaluacionClinica'))->with('success', 'Evaluación Clínica modificada correctamente');
     }
 
     /**

@@ -191,7 +191,8 @@
                                                         <div class="btn btn-light btn-circle btn-sm" style="margin-right: 10px">
                                                             {{$loop->index + 1}}
                                                         </div>
-                                                        {{ $anamnesisOdontologica->created_at }}
+                                                        Anamnesis Odontológica
+                                                        <div class="text-white-50 small" style="margin-left: 45px">{{ 'Fecha: '.$anamnesisOdontologica->created_at }}</div>
                                                     </div>
                                                     <span class="icon text-white-100">
                                                         <i class="fas fa-arrow-right"></i>
@@ -215,26 +216,26 @@
                 <div class="col-lg-4">   
                     <!-- Card Odontograma-->
                     <div class="card shadow mb-4 height-card-tesis">
-                        <div class="card-header py-3 card-flex-tesis">
+                        <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Odontograma</h6>
-                            <div class="card-footer-tesis">
-                                <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/anamnesis/new/'.$paciente->id)}}">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-plus"></i>
-                                    </span>
-                                    <span class="text">Añadir</span>
-                                </a>
-                            </div>
                         </div>
                         <div class="card-body">
-                            @if($paciente->ficha->anamnesis->count() > 0)
-                                <h1>Si</h1>
-                            @else
-                                <div class="empty-ficha-tesis">
-                                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="height: 12rem; width: 12rem;" src="{{asset('img/empty.svg')}}" alt="...">
-                                    <p style="margin-top: -30px">No hay datos</p>
+                            <a href="{{url('/odontograma/detail/'.$paciente->id)}}" style="text-decoration: none"> 
+                                <div class="card bg-primary text-white shadow">
+                                    <div class="card-body">
+                                        <div class="card-flex-tesis">
+                                            <div>
+                                                Ver Odontograma
+                                            </div>
+                                            <span class="icon text-white-100">
+                                                <i class="fas fa-arrow-right"></i>
+                                            </span>
+                                        </div>
+                                        
+                                    
+                                    </div>
                                 </div>
-                            @endif
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -249,7 +250,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">Evaluación Clínica</h6>
                             
                             <div class="card-footer-tesis">
-                                <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/anamnesis/new/'.$paciente->id)}}">
+                                <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/evaluacion_clinica/new/'.$paciente->id)}}">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-plus"></i>
                                     </span>
@@ -258,8 +259,29 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            @if($paciente->ficha->radiografias->count() > 0)
-                            
+                            @if($paciente->ficha->evaluacion_clinica->count() > 0)
+                                @foreach($paciente->ficha->evaluacion_clinica as $evaluacionClinica)
+                                    <a href="{{url('/evaluacion_clinica/detail/'.$evaluacionClinica->id)}}" style="text-decoration: none"> 
+                                        <div class="card bg-primary text-white shadow">
+                                            <div class="card-body">
+                                                <div class="card-flex-tesis">
+                                                    <div>
+                                                        <div class="btn btn-light btn-circle btn-sm" style="margin-right: 10px">
+                                                            {{$loop->index + 1}}
+                                                        </div>
+                                                        Evaluación Clínica
+                                                        <div class="text-white-50 small" style="margin-left: 45px">{{ 'Fecha: '.$evaluacionClinica->fecha }}</div>
+                                                    </div>
+                                                    <span class="icon text-white-100">
+                                                        <i class="fas fa-arrow-right"></i>
+                                                    </span>
+                                                </div>
+                                                
+                                            
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endforeach
                             @else
                                 <div class="empty-ficha-tesis">
                                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="height: 12rem; width: 12rem;" src="{{asset('img/empty.svg')}}" alt="...">

@@ -15,6 +15,7 @@ class CreateRadiografiasTable extends Migration
     {
         Schema::create('radiografias', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
             $table->date('fecha');
             $table->binary('archivo');
             $table->timestamps();

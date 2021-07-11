@@ -16,7 +16,11 @@ class CreateOdontogramasTable extends Migration
         Schema::create('odontogramas', function (Blueprint $table) {
             $table->id();
             $table->string('pieza');
-            $table->string('estado');
+            $table->integer('numero');
+            $table->string('estado')->nullable();
+            $table->string('estado_clase')->nullable();
+            $table->string('profundidad')->nullable();
+            $table->string('profundidad_clase')->nullable();
             $table->timestamps();
 
             //Declaración de clave foranea//

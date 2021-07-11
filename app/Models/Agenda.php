@@ -13,5 +13,17 @@ class Agenda extends Model
 
     protected $table = 'agendas';
 
-    protected $filleable = ['fecha','id_paciente','id_personal'];
+    protected $filleable = ['title','day','start_date','end_date','id_paciente','id_personal'];
+
+
+     //relaciones
+
+     public function paciente() {
+    	return $this->belongsTo(Paciente::class, 'id_paciente', 'id');
+    }
+
+    public function personal() {
+    	return $this->belongsTo(Personal::class, 'id_personal', 'id');
+    }
+
 }

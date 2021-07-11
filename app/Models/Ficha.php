@@ -30,6 +30,14 @@ class Ficha extends Model
     	return $this->hasMany(AnamnesisOdontologica::class, 'id_ficha');
     }
 
+    public function odontograma() {
+    	return $this->hasMany(Odontograma::class, 'id_ficha');
+    }
+
+    public function evaluacion_clinica() {
+    	return $this->hasMany(EvaluacionClinica::class, 'id_ficha');
+    }
+
     public function radiografias() {
     	return $this->hasMany(Radiografia::class, 'id_ficha');
     }
