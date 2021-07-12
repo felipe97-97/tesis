@@ -17,7 +17,7 @@ class CreatePacientesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('rut');
+            $table->string('rut')->unique();
             $table->string('sexo');
             $table->date('fecha_nacimiento');
             $table->string('ocupacion');

@@ -44,3 +44,15 @@ Route::get('evaluacion_clinica/detail/{id}', 'App\Http\Controllers\EvaluacionCli
 Route::get('evaluacion_clinica/delete/{id}', 'App\Http\Controllers\EvaluacionClinicaController@delete')->name('evaluacion_clinica.delete');
 Route::get('evaluacion_clinica/edit/{id}', 'App\Http\Controllers\EvaluacionClinicaController@update')->name('evaluacion_clinica.update');
 Route::get('evaluacion_clinica/create', 'App\Http\Controllers\EvaluacionClinicaController@create');
+
+Route::get('radiografia/new/{id}', 'App\Http\Controllers\RadiografiaController@new');
+Route::post('radiografia/create', 'App\Http\Controllers\RadiografiaController@create');
+Route::get('radiografia/download/{file}', 'App\Http\Controllers\RadiografiaController@descargarArchivo');
+
+Route::get('foto_clinica/new/{id}', 'App\Http\Controllers\FotografiasClinicaController@new');
+Route::post('foto_clinica/create', 'App\Http\Controllers\FotografiasClinicaController@create');
+Route::get('foto_clinica/download/{file}', 'App\Http\Controllers\FotografiasClinicaController@descargarArchivo');
+
+Route::get('inventario', 'App\Http\Controllers\ImplementoController@index');
+
+Route::get('pacientes', 'App\Http\Controllers\PacienteController@index');

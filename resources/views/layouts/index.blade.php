@@ -66,7 +66,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{url('/pacientes')}}">
                     <i class="fas fa-fw fa-list-ul"></i>
                     <span>Listado</span></a>
             </li>
@@ -88,7 +88,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{url('/inventario')}}">
                     <i class="fas fa-fw fa-boxes"></i>
                     <span>Inventario</span></a>
             </li>
@@ -295,6 +295,7 @@
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
     
     <script src="{{asset('fullcalendar/main.js')}}"></script>
+    
 
 </body>
 

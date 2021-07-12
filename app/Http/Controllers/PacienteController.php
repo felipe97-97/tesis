@@ -14,7 +14,9 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
+        $pacientes = Paciente::orderBy('apellido')->cursorPaginate(12);
+
+        return view('pacientes/index',compact('pacientes'));
     }
 
     /**

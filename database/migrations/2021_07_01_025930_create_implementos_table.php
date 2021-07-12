@@ -17,6 +17,7 @@ class CreateImplementosTable extends Migration
             $table->id();
             $table->string('item');
             $table->string('marca');
+            $table->string('codigo')->nullable();
             $table->integer('cantidad');
             $table->timestamps();
 

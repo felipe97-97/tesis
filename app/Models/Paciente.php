@@ -22,4 +22,8 @@ class Paciente extends Model
     	return $this->belongsTo(Ficha::class, 'id', 'id_paciente');
     }
 
+    public function agendas() {
+    	return $this->hasMany(Agenda::class, 'id_paciente');
+    }
+
 }

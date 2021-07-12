@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FotografiasClinica;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class FotografiasClinicaController extends Controller
@@ -17,25 +18,41 @@ class FotografiasClinicaController extends Controller
         //
     }
 
+    public function new($id)
+    {
+        $paciente = Paciente::find($id);
+        return view('fotos_clinicas/create', compact('paciente'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+   
+        $documentos = $request->file('documentos');
+        $name = time().$documentos->getClientOriginalName();
+        $name = str_replace(' ', '-', $name);
+        $documentos->move(public_path().'/documentos/fotos_clinicas', $name); 
+     
+
+        $fotoClinica = new FotografiasClinica();
+        $fotoClinica->titulo = $request->input('titulo');
+        $fotoClinica->fecha = $request->input('fecha');
+        $fotoClinica->archivo = $name;
+        $fotoClinica->id_ficha = $request->input('id');
+        $fotoClinica->save();
+
+        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Fotografía Clínica agregada correctamente');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function descargarArchivo($file)
     {
-        //
+        $pathtoFile= public_path(). "/documentos/fotos_clinicas/$file";
+
+        return response()->download($pathtoFile);
     }
 
     /**

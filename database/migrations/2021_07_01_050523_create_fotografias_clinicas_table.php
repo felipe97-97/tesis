@@ -15,6 +15,7 @@ class CreateFotografiasClinicasTable extends Migration
     {
         Schema::create('fotografias_clinicas', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
             $table->date('fecha');
             $table->binary('archivo');
             $table->timestamps();

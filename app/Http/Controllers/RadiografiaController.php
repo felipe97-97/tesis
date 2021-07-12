@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Radiografia;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class RadiografiaController extends Controller
@@ -17,26 +18,45 @@ class RadiografiaController extends Controller
         //
     }
 
+    public function new($id)
+    {
+        $paciente = Paciente::find($id);
+        return view('radiografia/create', compact('paciente'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+   
+        $documentos = $request->file('documentos');
+        $name = time().$documentos->getClientOriginalName();
+        $name = str_replace(' ', '-', $name);
+        $documentos->move(public_path().'/documentos/radiografias', $name); 
+     
+
+        $radiografia = new Radiografia();
+        $radiografia->titulo = $request->input('titulo');
+        $radiografia->fecha = $request->input('fecha');
+        $radiografia->archivo = $name;
+        $radiografia->id_ficha = $request->input('id');
+        $radiografia->save();
+
+        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Radiografía agregada correctamente');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function descargarArchivo($file)
     {
-        //
+        $pathtoFile= public_path(). "/documentos/radiografias/$file";
+
+        return response()->download($pathtoFile);
     }
+
+    
 
     /**
      * Display the specified resource.

@@ -14,4 +14,11 @@ class Implemento extends Model
     protected $table = 'implementos';
 
     protected $filleable = ['item','marca','cantidad','id_proveedor'];
+
+
+    //relaciones
+
+    public function proveedor() {
+    	return $this->belongsTo(Proveedor::class, 'id_proveedor', 'id');
+    }
 }

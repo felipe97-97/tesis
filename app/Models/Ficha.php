@@ -41,4 +41,8 @@ class Ficha extends Model
     public function radiografias() {
     	return $this->hasMany(Radiografia::class, 'id_ficha');
     }
+
+    public function fotografias_clinicas() {
+    	return $this->hasMany(FotografiasClinica::class, 'id_ficha');
+    }
 }

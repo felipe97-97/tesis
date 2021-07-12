@@ -14,7 +14,8 @@ class ImplementoController extends Controller
      */
     public function index()
     {
-        //
+        $inventarios = Implemento::cursorPaginate(25);
+        return view('inventario/index', compact('inventarios'));
     }
 
     /**
