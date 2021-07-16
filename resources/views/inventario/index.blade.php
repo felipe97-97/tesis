@@ -5,6 +5,8 @@
 @section('content')
 <div class="container-fluid">
 
+    @include('alerts.success')
+
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Inventario</h1>
 
@@ -14,11 +16,16 @@
 
             <!-- Card -->
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
+                <div class="card-header py-3 card-flex-tesis">
                     <h6 class="m-0 font-weight-bold text-primary">Implementos Registrados</h6>
+                    
+                    <a class="btn btn-success btn-circle btn-lg" style="float: right" data-target="#create_modal" data-toggle="modal">
+                        <i class="fas fa-plus"></i>
+                    </a>
                 </div>
                 <div class="card-body">
                     <input class="form-control form-control-user" type="text" placeholder="Buscar ..." style="float: right; margin-bottom: 15px">
+                    <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                           <tr>
@@ -33,25 +40,29 @@
                         </thead>
                         <tbody>
                           @foreach($inventarios as $inventario)
+                          @include('inventario.edit_modal')
+                          @include('inventario.stock_modal')
+                          @include('inventario.create_modal')
                             <tr>
                                 <th scope="row">{{$inventario->id}}</th>
                                 <td>{{$inventario->item}}</td>
                                 <td>{{$inventario->marca}}</td>
                                 <td>{{$inventario->codigo ? $inventario->codigo : 'NN'}}</td>
-                                <td>{{$inventario->proveedor->nombre}}</td>
+                                <td><a href="{{url('proveedor/'.$inventario->proveedor->id)}}">{{$inventario->proveedor->nombre}}</a></td>
                                 <td>{{$inventario->cantidad}}</td>
                                 <td style="width: 1%; white-space: nowrap;">
-                                    <a href="#" class="btn btn-warning btn-circle">
-                                        <i class="fas fa-edit"></i>
+                                    <a data-target="#stock_modal-{{$inventario->id}}" data-toggle="modal" class="btn btn-primary btn-circle">
+                                        <i class="fas fa-dolly-flatbed"></i>
                                     </a>
-                                    <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                        <i class="fas fa-trash"></i>
+                                    <a data-target="#edit_modal-{{$inventario->id}}" data-toggle="modal" class="btn btn-warning btn-circle btn-sm">
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                             </tr>
                           @endforeach
                         </tbody>
                       </table>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <div style="float: right; margin: 10px">

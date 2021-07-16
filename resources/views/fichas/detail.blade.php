@@ -1,6 +1,6 @@
 @extends('layouts.index')
 
-@section('title', 'Mis Asignaturas')  
+@section('title', 'Ficha '.$paciente->nombre.' '.$paciente->apellido)  
 
 @section('content')
 

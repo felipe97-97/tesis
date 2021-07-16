@@ -18,14 +18,31 @@ class ImplementoController extends Controller
         return view('inventario/index', compact('inventarios'));
     }
 
+    public function stock(Request $request)
+    {
+        $inventario = Implemento::find($request->input('id_inventario'));
+        $inventario->cantidad = $request->input('cantidad');
+        $inventario->update();
+
+        return redirect('/inventario')->with('success', 'Stock actualizado correctamente');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $inventario = new Implemento();
+        $inventario->item = $request->input('item');
+        $inventario->marca = $request->input('marca');
+        $inventario->codigo = $request->input('codigo');
+        $inventario->cantidad = $request->input('cantidad');
+        $inventario->id_proveedor = $request->input('id_proveedor');
+        $inventario->save();
+
+        return redirect('/inventario')->with('success', 'Ítem agregado correctamente');
     }
 
     /**
@@ -70,7 +87,14 @@ class ImplementoController extends Controller
      */
     public function update(Request $request, Implemento $implemento)
     {
-        //
+        $inventario = Implemento::find($request->input('id_inventario'));
+        $inventario->item = $request->input('item');
+        $inventario->marca = $request->input('marca');
+        $inventario->codigo = $request->input('codigo');
+        $inventario->id_proveedor = $request->input('id_proveedor');
+        $inventario->update();
+
+        return redirect('/inventario')->with('success', 'Datos actualizados correctamente');
     }
 
     /**

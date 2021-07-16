@@ -54,5 +54,8 @@ Route::post('foto_clinica/create', 'App\Http\Controllers\FotografiasClinicaContr
 Route::get('foto_clinica/download/{file}', 'App\Http\Controllers\FotografiasClinicaController@descargarArchivo');
 
 Route::get('inventario', 'App\Http\Controllers\ImplementoController@index');
+Route::get('inventario/create', 'App\Http\Controllers\ImplementoController@create');
+Route::get('inventario/stock/{id}', 'App\Http\Controllers\ImplementoController@stock')->name('inventario.stock');
+Route::get('inventario/edit/{id}', 'App\Http\Controllers\ImplementoController@update')->name('inventario.update');
 
 Route::get('pacientes', 'App\Http\Controllers\PacienteController@index');
