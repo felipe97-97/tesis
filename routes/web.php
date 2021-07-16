@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('', 'App\Http\Controllers\HomeController@index');
+
 Route::get('fichas', 'App\Http\Controllers\FichaController@index');
 Route::get('fichas/new', 'App\Http\Controllers\FichaController@new');
 Route::get('fichas/create', 'App\Http\Controllers\FichaController@create');

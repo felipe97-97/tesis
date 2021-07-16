@@ -11294,6 +11294,38 @@ body.sidebar-toggled footer.sticky-footer {
   border-radius: 0.35rem;
 }
 
+.custom-div-tesis-gradient-2 {
+  width: 100%;
+  height: auto;
+  background-color: #4e73df !important;
+  background-image: linear-gradient(135deg, #4e73df 0%, rgba(128, 57, 218, 0.8) 100%) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 0.35rem;
+  padding: 30px;
+  padding-bottom: 10px;
+}
+
+.custom-div-tesis-gradient-home {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-radius: 0.35rem;
+  background-color: #f8f9fc;
+}
+
+.custom-gradient-text-tesis {
+  background: -webkit-linear-gradient(135deg, #4e73df 0%, rgba(128, 57, 218, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 6rem;
+}
+
 .button-icon-tesis {
   display: flex;
   float:right;
@@ -11314,6 +11346,12 @@ body.sidebar-toggled footer.sticky-footer {
   }
   .button-icon-tesis-text {
     display: none;
+  }
+  .custom-gradient-text-tesis {
+    font-size: 2rem;
+  }
+  .custom-div-tesis-gradient-home {
+    justify-content: center;
   }
 }
 
@@ -12382,3 +12420,40 @@ div::-webkit-scrollbar-thumb {
   width: 70px;
   margin-top: 5px;
  }
+
+.fecha-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.dia-numero-home-tesis {
+ font-size: 10rem;
+ text-transform: uppercase;
+ background: -webkit-linear-gradient(135deg, #4e73df 0%, rgba(128, 57, 218, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 20px;
+  font-weight: bold;
+}
+.dia-letra-home-tesis {
+font-size: 5rem;
+font-weight: bold;
+text-transform: uppercase;
+margin-bottom: -2rem;
+}
+.mes-home-tesis {
+font-size: 4rem;
+font-weight: bold;
+text-transform: capitalize;
+margin-top: -1rem;
+background: -webkit-linear-gradient(135deg, rgba(128, 57, 218, 0.8) 0%, #4e73df 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.fecha-div {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
