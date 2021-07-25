@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Anamnesis;
 use App\Models\Paciente;
-use Illuminate\Http\Request;
 
 class AnamnesisController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +44,7 @@ class AnamnesisController extends Controller
     {
         $anamnesis = Anamnesis::find($id);
         $anamnesis->delete();
-        return redirect('/fichas/detail/'.$anamnesis->ficha->paciente->id)->with('success', 'Anamnesis eliminada correctamente');
+        return redirect()->route('fichas.detail',$anamnesis->ficha->paciente->id)->with('success', 'Anamnesis eliminada correctamente');
     }
 
     /**
@@ -43,17 +52,19 @@ class AnamnesisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $anamnesis = new Anamnesis();
-        $anamnesis->motivo_consulta = $request->input('motivo');
-        $anamnesis->antecedentes_medicos = $request->input('antecedentes');
-        $anamnesis->medicamentos = $request->input('medicamentos');
-        $anamnesis->alergias = $request->input('alergias');
-        $anamnesis->id_ficha = $request->input('id');
-        $anamnesis->save();
+        $validated = request()->validate([
+            'motivo_consulta' => 'required|min:3',
+            'antecedentes_medicos' => 'required|min:3',
+            'medicamentos' => 'required|min:3',
+            'alergias' => 'required|min:3',
+            'id_ficha' => 'required|integer'
+        ]);
 
-        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Anamnesis agregada correctamente');
+        Anamnesis::create($validated);
+
+        return redirect()->route('fichas.detail',request('id_paciente'))->with('success', 'Anamnesis agregada correctamente');
     }
 
     /**
@@ -85,16 +96,24 @@ class AnamnesisController extends Controller
      * @param  \App\Models\Anamnesis  $anamnesis
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Anamnesis $anamnesis)
+    public function update(Anamnesis $anamnesis)
     {
-        $anamnesis = Anamnesis::find($request->input('id_anamnesis'));
-        $anamnesis->motivo_consulta = $request->input('motivo');
-        $anamnesis->antecedentes_medicos = $request->input('antecedentes');
-        $anamnesis->medicamentos = $request->input('medicamentos');
-        $anamnesis->alergias = $request->input('alergias');
+        $validated = request()->validate([
+            'motivo_consulta' => 'required|min:3',
+            'antecedentes_medicos' => 'required|min:3',
+            'medicamentos' => 'required|min:3',
+            'alergias' => 'required|min:3',
+            'id_ficha' => 'required|integer'
+        ]);
+
+        $anamnesis = Anamnesis::find(request('id_anamnesis'));
+        $anamnesis->motivo_consulta = $validated['motivo_consulta'];
+        $anamnesis->antecedentes_medicos = $validated['antecedentes_medicos'];
+        $anamnesis->medicamentos = $validated['medicamentos'];
+        $anamnesis->alergias = $validated['alergias'];
         $anamnesis->update();
 
-        return redirect('/anamnesis/detail/' . $request->input('id_anamnesis'))->with('success', 'Anamnesis modificada correctamente');
+        return redirect()->route('anamnesis.detail',request('id_anamnesis'))->with('success', 'Anamnesis modificada correctamente');
     }
 
     /**

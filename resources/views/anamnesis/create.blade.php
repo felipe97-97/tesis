@@ -35,13 +35,18 @@
                 <div class="card-body">
                     <form method="GET" action="../create">
                         @csrf
-                        <input class="form-control" name="id" type="text" value="{{$paciente->ficha->id}}" hidden>
+                        <input class="form-control" name="id_ficha" type="text" value="{{$paciente->ficha->id}}" hidden>
                         <input class="form-control" name="id_paciente" type="text" value="{{$paciente->id}}" hidden>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Motivo Consulta</label>
-                                    <input class="form-control" name="motivo" type="text" placeholder="Indicar motivo">
+                                    <input class="form-control" name="motivo_consulta" type="text" placeholder="Indicar motivo" value="{{old('motivo_consulta')}}">
+                                    @error('motivo_consulta')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -49,19 +54,40 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Antecedentes Médicos</label>
-                                    <textarea class="fix-tesis-form" name="antecedentes" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="antecedentes_medicos" rows="3" placeholder="Ingrece los antecedentes médicos del paciente...">
+                                        {{old('antecedentes_medicos')}}
+                                    </textarea>
+                                    @error('antecedentes_medicos')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Medicamentos</label>
-                                    <textarea class="fix-tesis-form" name="medicamentos" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="medicamentos" rows="3" placeholder="Ingrece los medicamentos del paciente...">
+                                        {{old('medicamentos')}}
+                                    </textarea>
+                                    @error('medicamentos')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Alergias</label>
-                                    <textarea class="fix-tesis-form" name="alergias" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="alergias" rows="3" placeholder="Ingrece las alergias del paciente...">
+                                        {{old('alergias')}}
+                                    </textarea>
+                                    @error('alergias')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

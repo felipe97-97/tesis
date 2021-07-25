@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class AnamnesisOdontologicaController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,7 +44,7 @@ class AnamnesisOdontologicaController extends Controller
     {
         $anamnesisOdontologica = AnamnesisOdontologica::find($id);
         $anamnesisOdontologica->delete();
-        return redirect('/fichas/detail/'.$anamnesisOdontologica->ficha->paciente->id)->with('success', 'Anamnesis Odontológica eliminada correctamente');
+        return redirect()->route('fichas.detail',$anamnesisOdontologica->ficha->paciente->id)->with('success', 'Anamnesis Odontológica eliminada correctamente');
     }
 
     /**
@@ -42,20 +52,22 @@ class AnamnesisOdontologicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $anamnesisOdontologica = new AnamnesisOdontologica();
-        $anamnesisOdontologica->ultima_consulta = $request->input('ultima_consulta');
-        $anamnesisOdontologica->tratamientos_realizados = $request->input('tratamientos_realizados');
-        $anamnesisOdontologica->reacciones_adversas = $request->input('reacciones_adversas');
-        $anamnesisOdontologica->habitos_higiene = $request->input('habitos_higiene');
-        $anamnesisOdontologica->habitos_parafuncionales = $request->input('habitos_parafuncionales');
-        $anamnesisOdontologica->examen_tejidos_blandos = $request->input('tejidos_blandos');
-        $anamnesisOdontologica->observaciones = $request->input('observaciones');
-        $anamnesisOdontologica->id_ficha = $request->input('id');
-        $anamnesisOdontologica->save();
+        $validated = request()->validate([
+            'ultima_consulta' => 'required|date',
+            'tratamientos_realizados' => 'required|min:3',
+            'reacciones_adversas' => 'required|min:3',
+            'habitos_higiene' => 'required|min:3',
+            'habitos_parafuncionales' => 'required|min:3',
+            'examen_tejidos_blandos' => 'required|min:3',
+            'observaciones' => 'required|min:3',
+            'id_ficha' => 'required|integer'
+        ]);
 
-        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Anamnesis Odontológica agregada correctamente');
+        AnamnesisOdontologica::create($validated);
+
+        return redirect()->route('fichas.detail',request('id_paciente'))->with('success', 'Anamnesis Odontológica agregada correctamente');
     }
 
     /**
@@ -87,19 +99,29 @@ class AnamnesisOdontologicaController extends Controller
      * @param  \App\Models\AnamnesisOdontologica  $anamnesisOdontologica
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AnamnesisOdontologica $anamnesisOdontologica)
+    public function update(AnamnesisOdontologica $anamnesisOdontologica)
     {
-        $anamnesisOdontologica = AnamnesisOdontologica::find($request->input('id_anamnesisOdontologica'));
-        $anamnesisOdontologica->ultima_consulta = $request->input('ultima_consulta');
-        $anamnesisOdontologica->tratamientos_realizados = $request->input('tratamientos_realizados');
-        $anamnesisOdontologica->reacciones_adversas = $request->input('reacciones_adversas');
-        $anamnesisOdontologica->habitos_higiene = $request->input('habitos_higiene');
-        $anamnesisOdontologica->habitos_parafuncionales = $request->input('habitos_parafuncionales');
-        $anamnesisOdontologica->examen_tejidos_blandos = $request->input('tejidos_blandos');
-        $anamnesisOdontologica->observaciones = $request->input('observaciones');
+        $validated = request()->validate([
+            'ultima_consulta' => 'required|date',
+            'tratamientos_realizados' => 'required|min:3',
+            'reacciones_adversas' => 'required|min:3',
+            'habitos_higiene' => 'required|min:3',
+            'habitos_parafuncionales' => 'required|min:3',
+            'examen_tejidos_blandos' => 'required|min:3',
+            'observaciones' => 'required|min:3'
+        ]);
+
+        $anamnesisOdontologica = AnamnesisOdontologica::find(request('id_anamnesisOdontologica'));
+        $anamnesisOdontologica->ultima_consulta =$validated['ultima_consulta'];
+        $anamnesisOdontologica->tratamientos_realizados =$validated['tratamientos_realizados'];
+        $anamnesisOdontologica->reacciones_adversas =$validated['reacciones_adversas'];
+        $anamnesisOdontologica->habitos_higiene =$validated['habitos_higiene'];
+        $anamnesisOdontologica->habitos_parafuncionales =$validated['habitos_parafuncionales'];
+        $anamnesisOdontologica->examen_tejidos_blandos =$validated['examen_tejidos_blandos'];
+        $anamnesisOdontologica->observaciones =$validated['observaciones'];
         $anamnesisOdontologica->update();
 
-        return redirect('/anamnesis_odontologica/detail/' . $request->input('id_anamnesisOdontologica'))->with('success', 'Anamnesis Odontológica modificada correctamente');
+        return redirect()->route('anamnesis_odontologica.detail',request('id_anamnesisOdontologica'))->with('success', 'Anamnesis Odontológica modificada correctamente');
     }
 
     /**

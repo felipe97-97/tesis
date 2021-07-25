@@ -22,6 +22,14 @@
         </div>
     </div>
 
+    @if (count($errors) > 0)
+        <div class="card bg-danger text-white shadow md-5">
+            <div class="card-body">
+                <span>Ups! al parecer ha ocurrido un error, revise la pantalla de Editar Anamnesis Odontológica, para más detalles</span>
+            </div>
+        </div>
+    @endif
+
     <div class="row">
 
         <div class="col-lg-12">

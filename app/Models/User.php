@@ -40,4 +40,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     //relaciones
+
+     public function personal() {
+    	return $this->belongsTo(Personal::class, 'id_personal', 'id');
+    }
 }

@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class EvaluacionClinicaController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,7 +44,7 @@ class EvaluacionClinicaController extends Controller
     {
         $evaluacionClinica = EvaluacionClinica::find($id);
         $evaluacionClinica->delete();
-        return redirect('/fichas/detail/'.$evaluacionClinica->ficha->paciente->id)->with('success', 'Evaluación Clínica eliminada correctamente');
+        return redirect()->route('fichas.detail',$evaluacionClinica->ficha->paciente->id)->with('success', 'Evaluación Clínica eliminada correctamente');
     }
 
     /**
@@ -42,15 +52,17 @@ class EvaluacionClinicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $evaluacion = new EvaluacionClinica();
-        $evaluacion->fecha = $request->input('fecha');
-        $evaluacion->actividad = $request->input('actividades');
-        $evaluacion->id_ficha = $request->input('id');
-        $evaluacion->save();
+        $validated = request()->validate([
+            'fecha' => 'required|date',
+            'actividad' => 'required|min:3',
+            'id_ficha' => 'required|integer'
+        ]);
 
-        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Anamnesis agregada correctamente');
+        EvaluacionClinica::create($validated);
+
+        return redirect()->route('fichas.detail',request('id_paciente'))->with('success', 'Anamnesis agregada correctamente');
     }
 
 

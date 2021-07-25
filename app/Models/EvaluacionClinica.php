@@ -13,7 +13,7 @@ class EvaluacionClinica extends Model
 
     protected $table = 'evaluacion_clinicas';
 
-    protected $filleable = ['fecha','actividad','id_ficha'];
+    protected $fillable = ['fecha','actividad','id_ficha'];
 
 
     //relaciones

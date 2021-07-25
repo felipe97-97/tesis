@@ -13,7 +13,7 @@ class Agenda extends Model
 
     protected $table = 'agendas';
 
-    protected $filleable = ['title','day','start_date','end_date','id_paciente','id_personal'];
+    protected $fillable = ['title','day','start_date','end_date','id_paciente','id_personal'];
 
 
      //relaciones

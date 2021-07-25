@@ -1,6 +1,6 @@
 @extends('layouts.index')
 
-@section('title', 'Nueva Ficha')  
+@section('title', 'Añadir Anamnesis Odontológica')  
 
 @section('content')
 
@@ -35,13 +35,18 @@
                 <div class="card-body">
                     <form method="GET" action="../create">
                         @csrf
-                        <input class="form-control" name="id" type="text" value="{{$paciente->ficha->id}}" hidden>
+                        <input class="form-control" name="id_ficha" type="text" value="{{$paciente->ficha->id}}" hidden>
                         <input class="form-control" name="id_paciente" type="text" value="{{$paciente->id}}" hidden>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Fecha Última Consulta</label>
-                                    <input class="form-control" name="ultima_consulta" type="date" placeholder="Juan Alberto">
+                                    <input class="form-control" name="ultima_consulta" type="date" value="{{old('ultima_consulta')}}">
+                                    @error('ultima_consulta')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -49,19 +54,40 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Tratamientos Realizados</label>
-                                    <textarea class="fix-tesis-form" name="tratamientos_realizados" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="tratamientos_realizados" rows="3" placeholder="Ingrese tratamientos realizados al paciente...">
+                                        {{old('tratamientos_realizados')}}
+                                    </textarea>
+                                    @error('tratamientos_realizados')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Reacciones Adversas</label>
-                                    <textarea class="fix-tesis-form" name="reacciones_adversas" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="reacciones_adversas" rows="3" placeholder="Ingrese reacciones adversas mostradas por el paciente...">
+                                        {{old('reacciones_adversas')}}
+                                    </textarea>
+                                    @error('reacciones_adversas')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Hábitos de Higiene</label>
-                                    <textarea class="fix-tesis-form" name="habitos_higiene" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="habitos_higiene" rows="3" placeholder="Ingrese los hábitos de higiene del paciente...">
+                                        {{old('habitos_higiene')}}
+                                    </textarea>
+                                    @error('habitos_higiene')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -69,19 +95,40 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Hábitos Parafuncionales</label>
-                                    <textarea class="fix-tesis-form" name="habitos_parafuncionales" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="habitos_parafuncionales" rows="3" placeholder="Ingrese los hábitos parafuncionales del paciente...">
+                                        {{old('habitos_parafuncionales')}}
+                                    </textarea>
+                                    @error('habitos_parafuncionales')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Examen de Tejidos Blandos</label>
-                                    <textarea class="fix-tesis-form" name="tejidos_blandos" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="examen_tejidos_blandos" rows="3" placeholder="Ingrese el examen de tejidos blandos del paciente...">
+                                        {{old('examen_tejidos_blandos')}}
+                                    </textarea>
+                                    @error('examen_tejidos_blandos')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Observaciones</label>
-                                    <textarea class="fix-tesis-form" name="observaciones" rows="3"></textarea>
+                                    <textarea class="fix-tesis-form" name="observaciones" rows="3" placeholder="Ingrese posibles observaciones...">
+                                        {{old('observaciones')}}
+                                    </textarea>
+                                    @error('observaciones')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

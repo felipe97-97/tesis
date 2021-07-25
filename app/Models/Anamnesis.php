@@ -13,7 +13,7 @@ class Anamnesis extends Model
 
     protected $table = 'anamnesis';
 
-    protected $filleable = ['motivo_consulta','antecedentes_medicos','medicamentos','alergias','id_ficha'];
+    protected $fillable = ['motivo_consulta','antecedentes_medicos','medicamentos','alergias','id_ficha'];
 
 
     //relaciones

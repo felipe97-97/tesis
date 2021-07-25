@@ -50,7 +50,7 @@
             </li>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('agenda') ? 'active' : '' }}">
                 <a class="nav-link" href="{{url('/agenda')}}">
                     <i class="fas fa-fw fa-calendar"></i>
                     <span>Agenda</span></a>
@@ -64,18 +64,25 @@
                 PACIENTES
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/pacientes')}}">
-                    <i class="fas fa-fw fa-list-ul"></i>
-                    <span>Listado</span></a>
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-file-archive"></i>
-                    <span>Fichas</span></a>
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Pacientes</span>
+                </a>
+                <div id="collapseUtilities" class="collapse 
+                {{ request()->is('fichas/new') ? 'show' : '' }}
+                {{ request()->is('pacientes') ? 'show' : '' }}" 
+                
+                aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Administrar pacientes:</h6>
+                        <a class="collapse-item {{ request()->is('fichas/new') ? 'active' : '' }}" href="{{url('/fichas/new')}}">Crear Nuevo</a>
+                        <a class="collapse-item {{ request()->is('pacientes') ? 'active' : '' }}" href="{{url('/pacientes')}}">Listado</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -86,18 +93,47 @@
                 ADMINISTRAR
             </div>
 
-            <!-- Nav Item - Charts -->
+
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/inventario')}}">
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseInventario"
+                    aria-expanded="true" aria-controls="collapseInventario">
                     <i class="fas fa-fw fa-boxes"></i>
-                    <span>Inventario</span></a>
+                    <span>Inventario</span>
+                </a>
+                <div id="collapseInventario" class="collapse 
+                {{ request()->is('inventario') ? 'show' : '' }}
+                {{ request()->is('proveedores') ? 'show' : '' }}" 
+                
+                aria-labelledby="headingInventario"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Administrar inventario:</h6>
+                        <a class="collapse-item {{ request()->is('inventario') ? 'active' : '' }}" href="{{url('/inventario')}}">Listado</a>
+                        <a class="collapse-item {{ request()->is('proveedores') ? 'active' : '' }}" href="{{url('/proveedores')}}">Proveedores</a>
+                    </div>
+                </div>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapsePersonal"
+                    aria-expanded="true" aria-controls="collapsePersonal">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Personal</span></a>
+                    <span>Personal</span>
+                </a>
+                <div id="collapsePersonal" class="collapse 
+                {{ request()->is('personal/new') ? 'show' : '' }}
+                {{ request()->is('personal') ? 'show' : '' }}" 
+                
+                aria-labelledby="headingPersonal"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Administrar Personal:</h6>
+                        <a class="collapse-item {{ request()->is('personal/new') ? 'active' : '' }}" href="{{url('/personal/new')}}">Agregar Trabajador</a>
+                        <a class="collapse-item {{ request()->is('personal') ? 'active' : '' }}" href="{{url('/personal')}}">Listado</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -205,30 +241,27 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->name}}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{asset('img/undraw_profile.svg')}}">
+                                    src="{{auth()->user()->personal->sexo == 'Hombre' ? asset('img/undraw_profile_2.svg') : asset('img/undraw_profile_3.svg')}}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Cambiar Contraseña
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Cerrar Sesión
                                 </a>
+                                
+                                <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
 

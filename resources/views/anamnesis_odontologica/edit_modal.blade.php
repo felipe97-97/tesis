@@ -25,7 +25,7 @@
                 <textarea class="fix-tesis-form" name="habitos_parafuncionales" rows="3">{{$anamnesisOdontologica->habitos_parafuncionales}}</textarea>
                 </br>
                 <label for="exampleFormControlInput1">Examen Tejidos Blandos</label>
-                <textarea class="fix-tesis-form" name="tejidos_blandos" rows="3">{{$anamnesisOdontologica->examen_tejidos_blandos}}</textarea>
+                <textarea class="fix-tesis-form" name="examen_tejidos_blandos" rows="3">{{$anamnesisOdontologica->examen_tejidos_blandos}}</textarea>
                 </br>
                 <label for="exampleFormControlInput1">Observaciones</label>
                 <textarea class="fix-tesis-form" name="observaciones" rows="3">{{$anamnesisOdontologica->observaciones}}</textarea>

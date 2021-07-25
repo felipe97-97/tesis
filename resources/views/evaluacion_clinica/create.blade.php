@@ -30,18 +30,23 @@
             <!-- Card -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Formulario Anamnesis</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Formulario Evaluación Clínica</h6>
                 </div>
                 <div class="card-body">
                     <form method="GET" action="../create">
                         @csrf
-                        <input class="form-control" name="id" type="text" value="{{$paciente->ficha->id}}" hidden>
+                        <input class="form-control" name="id_ficha" type="text" value="{{$paciente->ficha->id}}" hidden>
                         <input class="form-control" name="id_paciente" type="text" value="{{$paciente->id}}" hidden>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Fecha</label>
-                                    <input class="form-control" name="fecha" type="date" placeholder="Indicar motivo" required>
+                                    <input class="form-control" name="fecha" type="date" placeholder="Indicar motivo" required value="{{old('fecha')}}">
+                                    @error('fecha')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -49,7 +54,12 @@
                             <div class="col-md-12 ">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Actividades</label>
-                                    <textarea class="fix-tesis-form" name="actividades" rows="3" required></textarea>
+                                    <textarea class="fix-tesis-form" name="actividad" rows="3" required placeholder="Ingrece las actividades realizadas...">{{old('actividad')}}</textarea>
+                                    @error('actividad')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

@@ -19,7 +19,7 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlSelect1">Motivo</label>
-                        <select class="form-control form-control-user" name="tipo" required>
+                        <select class="form-control form-control-user" name="title" required>
                             <option defaultValue hidden>Seleccione Motivo</option>
                             <option>Consulta</option>
                             <option>Chequeo</option>
@@ -30,19 +30,34 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1">Día</label>
-                        <input class="form-control form-control-user" name="dia" type="date" required>
+                        <input class="form-control form-control-user" name="day" type="date" required value="{{old('day')}}">
+                        @error('day')
+                            <span class="text-danger">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Hora Inicio</label>
-                                <input class="form-control form-control-user" name="inicio" type="time" required>
+                                <input class="form-control form-control-user" name="start_date" type="time" required>
+                                @error('start_date')
+                                    <span class="text-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Hora Fin</label>
-                                <input class="form-control form-control-user" name="fin" type="time" required>
+                                <input class="form-control form-control-user" name="end_date" type="time" required>
+                                @error('end_date')
+                                    <span class="text-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -76,3 +91,4 @@
         </div>
     </div>
 </div>
+

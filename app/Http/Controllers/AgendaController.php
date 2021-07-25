@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
-use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
-
     /**
-     * Display a listing of the resource.
+     * Create a new controller instance.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('calendar_all');
+    }
+
 
     public function calendar_all()
     {
@@ -23,6 +26,12 @@ class AgendaController extends Controller
         ], 200);
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function index()
     {   
         return view('agenda.index');
@@ -32,7 +41,7 @@ class AgendaController extends Controller
     {
         $agenda = Agenda::find($id);
         $agenda->delete();
-        return redirect('/agenda')->with('success', 'Fecha eliminada correctamente');
+        return redirect()->route('agenda.index')->with('success', 'Fecha eliminada correctamente');
     }
 
     /**
@@ -40,18 +49,20 @@ class AgendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $agenda = new Agenda();
-        $agenda->title = $request->input('tipo');
-        $agenda->day = $request->input('dia');
-        $agenda->start_date = $request->input('inicio');
-        $agenda->end_date = $request->input('fin');
-        $agenda->id_paciente = $request->input('id_paciente');
-        $agenda->id_personal = $request->input('id_personal');
-        $agenda->save();
+        $validated = request()->validate([
+            'title' => 'required',
+            'day' => 'required|date',
+            'start_date' => 'required|date_format:H:i',
+            'end_date' => 'required|date_format:H:i',
+            'id_paciente' => 'required|integer',
+            'id_personal' => 'required|integer',
+        ]);
 
-        return redirect('agenda');
+        Agenda::create($validated);
+
+        return redirect()->route('agenda.index')->with('success', 'Hora agendada correctamente');
     }
 
     /**
@@ -83,7 +94,7 @@ class AgendaController extends Controller
      * @param  \App\Models\Agenda  $agenda
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agenda $agenda)
+    public function update(Agenda $agenda)
     {
         //
     }
