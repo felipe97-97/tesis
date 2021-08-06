@@ -5,6 +5,7 @@
 @section('content')
 <div class="container-fluid">
 
+    @include('alerts.success')
   <div class="row">
       <div class="col-md-8">
           <!-- GRADIENTE DIV HEADER -->

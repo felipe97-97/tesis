@@ -1,6 +1,6 @@
 @extends('layouts.index')
 
-@section('title', 'Nuevo Trabajador')  
+@section('title', 'Nuevo Colaborador')  
 
 @section('content')
 
@@ -17,7 +17,7 @@
                 </svg>
             </div>
             <div>
-                <h1 class="h1 mb-1 text-white-800">Nuevo Trabajador</h1>
+                <h1 class="h1 mb-1 text-white-800">Nuevo Colaborador</h1>
                 <p class="mb-3">Rellene el formulario con los datos correspondientes</p>
             </div>
         </div>
@@ -42,19 +42,34 @@
                             <div class="col-md-5">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Nombres</label>
-                                    <input class="form-control" name="nombres" type="text" placeholder="Juan Alberto">
+                                    <input class="form-control" name="nombre" type="text" placeholder="Juan Alberto">
+                                    @error('nombre')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Apellidos</label>
-                                    <input class="form-control form-control-user" name="apellidos" type="text" placeholder="Suazo Pérez">
+                                    <input class="form-control form-control-user" name="apellido" type="text" placeholder="Suazo Pérez">
+                                    @error('apellido')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Rut</label>
                                     <input class="form-control form-control-user" name="rut" type="text" placeholder="1.234.567-8">
+                                    @error('rut')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -63,6 +78,11 @@
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Teléfono</label>
                                     <input class="form-control form-control-user" name="telefono" type="text" placeholder="+56978549856">
+                                    @error('telefono')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -74,6 +94,11 @@
                                         <option>Hombre</option>
                                         <option>Otro</option>
                                     </select>
+                                    @error('sexo')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -86,18 +111,33 @@
                                         <option>Odontólogo</option>
                                         <option>Administrador Sistema</option>
                                     </select>
+                                    @error('cargo')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Dirección</label>
                                     <input class="form-control form-control-user" name="direccion" type="text" placeholder="Calle #793, Los Ángeles">
+                                    @error('direccion')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Correo Electrónico</label>
                                     <input class="form-control form-control-user" name="correo" type="email" placeholder="correo@correo.cl">
+                                    @error('correo')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

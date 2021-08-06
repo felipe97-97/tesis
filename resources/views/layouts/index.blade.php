@@ -120,7 +120,7 @@
                 <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapsePersonal"
                     aria-expanded="true" aria-controls="collapsePersonal">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Personal</span>
+                    <span>Colaboradores</span>
                 </a>
                 <div id="collapsePersonal" class="collapse 
                 {{ request()->is('personal/new') ? 'show' : '' }}
@@ -130,7 +130,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrar Personal:</h6>
-                        <a class="collapse-item {{ request()->is('personal/new') ? 'active' : '' }}" href="{{url('/personal/new')}}">Agregar Trabajador</a>
+                        <a class="collapse-item {{ request()->is('personal/new') ? 'active' : '' }}" href="{{url('/personal/new')}}">Agregar Colaborador</a>
                         <a class="collapse-item {{ request()->is('personal') ? 'active' : '' }}" href="{{url('/personal')}}">Listado</a>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" data-target="#edit_password_modal-{{auth()->user()->id}}" data-toggle="modal">
                                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Cambiar Contraseña
                                 </a>
@@ -269,6 +269,7 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                @include('home.edit_password_modal')
 
                 @yield('content')
                 <!-- /.container-fluid -->

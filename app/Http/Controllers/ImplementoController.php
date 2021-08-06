@@ -28,13 +28,17 @@ class ImplementoController extends Controller
         return view('inventario/index', compact('inventarios'));
     }
 
-    public function stock(Request $request)
+    public function stock()
     {
-        $inventario = Implemento::find($request->input('id_inventario'));
-        $inventario->cantidad = $request->input('cantidad');
+        $validated = request()->validate([
+            'cantidad' => 'required|integer'
+        ]);
+
+        $inventario = Implemento::find(request('id_inventario'));
+        $inventario->cantidad = $validated['cantidad'];
         $inventario->update();
 
-        return redirect('/inventario')->with('success', 'Stock actualizado correctamente');
+        return redirect()->route('inventario.index')->with('success', 'Stock actualizado correctamente');
     }
 
     /**
@@ -44,48 +48,17 @@ class ImplementoController extends Controller
      */
     public function create(Request $request)
     {
-        $inventario = new Implemento();
-        $inventario->item = $request->input('item');
-        $inventario->marca = $request->input('marca');
-        $inventario->codigo = $request->input('codigo');
-        $inventario->cantidad = $request->input('cantidad');
-        $inventario->id_proveedor = $request->input('id_proveedor');
-        $inventario->save();
+        $validated = request()->validate([
+            'item' => 'required|min:2',
+            'marca' => 'required|min:2',
+            'codigo' => 'nullable',
+            'cantidad' => 'required|integer',
+            'id_proveedor' => 'required|integer'
+        ]);
 
-        return redirect('/inventario')->with('success', 'Ítem agregado correctamente');
-    }
+        Implemento::create($validated);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Implemento  $implemento
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Implemento $implemento)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Implemento  $implemento
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Implemento $implemento)
-    {
-        //
+        return redirect()->route('inventario.index')->with('success', 'Ítem agregado correctamente');
     }
 
     /**
@@ -97,24 +70,21 @@ class ImplementoController extends Controller
      */
     public function update(Request $request, Implemento $implemento)
     {
-        $inventario = Implemento::find($request->input('id_inventario'));
-        $inventario->item = $request->input('item');
-        $inventario->marca = $request->input('marca');
-        $inventario->codigo = $request->input('codigo');
-        $inventario->id_proveedor = $request->input('id_proveedor');
+        $validated = request()->validate([
+            'item' => 'required|min:2',
+            'marca' => 'required|min:2',
+            'codigo' => 'nullable',
+            'id_proveedor' => 'required|integer'
+        ]);
+
+        $inventario = Implemento::find(request('id_inventario'));
+        $inventario->item = $validated['item'];
+        $inventario->marca = $validated['marca'];
+        $inventario->codigo = $validated['codigo'];
+        $inventario->id_proveedor = $validated['id_proveedor'];
         $inventario->update();
 
-        return redirect('/inventario')->with('success', 'Datos actualizados correctamente');
+        return redirect()->route('inventario.index')->with('success', 'Datos actualizados correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Implemento  $implemento
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Implemento $implemento)
-    {
-        //
-    }
 }

@@ -18,16 +18,6 @@ class FotografiasClinicaController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     public function new($id)
     {
         $paciente = Paciente::find($id);
@@ -46,16 +36,22 @@ class FotografiasClinicaController extends Controller
         $name = time().$documentos->getClientOriginalName();
         $name = str_replace(' ', '-', $name);
         $documentos->move(public_path().'/documentos/fotos_clinicas', $name); 
+
+        $validated = request()->validate([
+            'titulo' => 'required|min:3',
+            'fecha' => 'required|date',
+            'id_ficha' => 'required|integer'
+        ]);
      
 
         $fotoClinica = new FotografiasClinica();
-        $fotoClinica->titulo = $request->input('titulo');
-        $fotoClinica->fecha = $request->input('fecha');
+        $fotoClinica->titulo = $validated['titulo'];
+        $fotoClinica->fecha = $validated['fecha'];
         $fotoClinica->archivo = $name;
-        $fotoClinica->id_ficha = $request->input('id');
+        $fotoClinica->id_ficha = $validated['id_ficha'];
         $fotoClinica->save();
 
-        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Fotografía Clínica agregada correctamente');
+        return redirect()->route('fichas.detail',request('id_paciente'))->with('success', 'Fotografía Clínica agregada correctamente');
     }
 
     public function descargarArchivo($file)
@@ -65,48 +61,4 @@ class FotografiasClinicaController extends Controller
         return response()->download($pathtoFile);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FotografiasClinica  $fotografiasClinica
-     * @return \Illuminate\Http\Response
-     */
-    public function show(FotografiasClinica $fotografiasClinica)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FotografiasClinica  $fotografiasClinica
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(FotografiasClinica $fotografiasClinica)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FotografiasClinica  $fotografiasClinica
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FotografiasClinica $fotografiasClinica)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FotografiasClinica  $fotografiasClinica
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(FotografiasClinica $fotografiasClinica)
-    {
-        //
-    }
 }

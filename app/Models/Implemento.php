@@ -13,7 +13,7 @@ class Implemento extends Model
 
     protected $table = 'implementos';
 
-    protected $filleable = ['item','marca','cantidad','id_proveedor'];
+    protected $fillable = ['item','marca','codigo','cantidad','id_proveedor'];
 
 
     //relaciones

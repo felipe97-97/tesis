@@ -13,7 +13,7 @@ class Paciente extends Model
 
     protected $table = 'pacientes';
 
-    protected $filleable = ['nombre','apellido','rut','sexo','fecha_nacimiento','ocupacion','correo','telefono','direccion','tutor','parentesco','contacto_emergencia'];
+    protected $fillable = ['nombre','apellido','rut','sexo','fecha_nacimiento','ocupacion','correo','telefono','direccion','tutor','contacto_emergencia'];
 
 
     //relaciones

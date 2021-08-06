@@ -40,23 +40,25 @@ class FichaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $paciente = new Paciente();
-        $paciente->nombre = $request->input('nombres');
-        $paciente->apellido = $request->input('apellidos');
-        $paciente->rut = $request->input('rut');
-        $paciente->sexo = $request->input('sexo');
-        $paciente->fecha_nacimiento = $request->input('nacimiento');
-        $paciente->ocupacion = $request->input('ocupacion');
-        $paciente->correo = $request->input('correo');
-        $paciente->telefono = $request->input('telefono');
-        $paciente->direccion = $request->input('direccion');
-        $paciente->tutor = $request->input('tutor');
-        $paciente->contacto_emergencia = $request->input('emergencia');
-        $paciente->save();
+        $validated = request()->validate([
+            'nombre' => 'required|min:3',
+            'apellido' => 'required|min:3',
+            'rut' => 'required|min:8|unique:pacientes,rut',
+            'sexo' => 'required',
+            'fecha_nacimiento' => 'required|date',
+            'ocupacion' => 'required|min:3',
+            'correo' => 'required|email',
+            'telefono' => 'required|min:8',
+            'direccion' => 'required|min:3',
+            'tutor' => 'required|min:5',
+            'contacto_emergencia' => 'required|min:3'
+        ]);
 
-        $id_paciente = Paciente::where('rut',$request->input('rut'))->first();
+        Paciente::create($validated);
+
+        $id_paciente = Paciente::where('rut',request('rut'))->first();
 
         $ficha = new Ficha();
         $ficha->id_paciente = $id_paciente->id;
@@ -81,7 +83,7 @@ class FichaController extends Controller
             $odontograma->save();
         }
 
-        return redirect('/fichas/detail/'.$id_paciente->id)->with('success', 'Ficha creada correctamente');
+        return redirect()->route('fichas.detail',$id_paciente->id)->with('success', 'Ficha creada correctamente');
     }
 
     /**
@@ -113,23 +115,37 @@ class FichaController extends Controller
      * @param  \App\Models\Ficha  $ficha
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ficha $ficha)
+    public function update(Ficha $ficha)
     {
-        $paciente = Paciente::find($request->input('id_paciente'));
-        $paciente->nombre = $request->input('nombre');
-        $paciente->apellido = $request->input('apellido');
-        $paciente->rut = $request->input('rut');
-        $paciente->sexo = $request->input('sexo');
-        $paciente->fecha_nacimiento = $request->input('nacimiento');
-        $paciente->ocupacion = $request->input('ocupacion');
-        $paciente->correo = $request->input('correo');
-        $paciente->telefono = $request->input('telefono');
-        $paciente->direccion = $request->input('direccion');
-        $paciente->tutor = $request->input('tutor');
-        $paciente->contacto_emergencia = $request->input('emergencia');
+        $validated = request()->validate([
+            'nombre' => 'required|min:3',
+            'apellido' => 'required|min:3',
+            'rut' => 'required|min:8',
+            'sexo' => 'required',
+            'fecha_nacimiento' => 'required|date',
+            'ocupacion' => 'required|min:3',
+            'correo' => 'required|email',
+            'telefono' => 'required|min:8',
+            'direccion' => 'required|min:3',
+            'tutor' => 'required|min:5',
+            'contacto_emergencia' => 'required|min:3'
+        ]);
+
+        $paciente = Paciente::find(request('id_paciente'));
+        $paciente->nombre = $validated['nombre'];
+        $paciente->apellido = $validated['apellido'];
+        $paciente->rut = $validated['rut'];
+        $paciente->sexo = $validated['sexo'];
+        $paciente->fecha_nacimiento = $validated['fecha_nacimiento'];
+        $paciente->ocupacion = $validated['ocupacion'];
+        $paciente->correo = $validated['correo'];
+        $paciente->telefono = $validated['telefono'];
+        $paciente->direccion = $validated['direccion'];
+        $paciente->tutor = $validated['tutor'];
+        $paciente->contacto_emergencia = $validated['contacto_emergencia'];
         $paciente->update();
 
-        return redirect('/fichas/detail/'.$request->input('id_paciente'))->with('success', 'Ficha actualizada correctamente');
+        return redirect()->route('fichas.detail', request('id_paciente'))->with('success', 'Ficha actualizada correctamente');
         
     }
 

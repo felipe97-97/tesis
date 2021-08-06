@@ -25,7 +25,6 @@
             <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 20rem;" src="../img/ficha2.svg" alt="...">
         </div>
     </div>
-
     <div class="row">
 
         <div class="col-lg-12">
@@ -42,13 +41,23 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Nombres</label>
-                                    <input class="form-control" name="nombres" type="text" placeholder="Juan Alberto">
+                                    <input class="form-control" name="nombre" type="text" placeholder="Juan Alberto" value="{{old('nombre')}}">
+                                    @error('nombre')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Apellidos</label>
-                                    <input class="form-control form-control-user" name="apellidos" type="text" placeholder="Suazo Pérez">
+                                    <input class="form-control form-control-user" name="apellido" type="text" placeholder="Suazo Pérez" value="{{old('apellido')}}">
+                                    @error('apellido')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -56,36 +65,60 @@
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Rut</label>
-                                    <input class="form-control form-control-user" name="rut" type="text" placeholder="1.234.567-8">
+                                    <input class="form-control form-control-user" name="rut" type="text" placeholder="1.234.567-8" value="{{old('rut')}}">
+                                    @error('rut')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlSelect1">Sexo</label>
-                                    <select class="form-control form-control-user" name="sexo">
-                                        <option defaultValue hidden>Seleccione Sexo</option>
+                                    <select class="form-control form-control-user" name="sexo" required>
+                                        <option value='' defaultValue hidden>Seleccione Sexo</option>
                                         <option>Mujer</option>
                                         <option>Hombre</option>
-                                        <option>Otro</option>
                                     </select>
+                                    @error('sexo')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Fecha Nacimiento</label>
-                                    <input class="form-control form-control-user" name="nacimiento" type="date" placeholder="Suazo Pérez">
+                                    <input class="form-control form-control-user" name="fecha_nacimiento" type="date" placeholder="Suazo Pérez" value="{{old('fecha_nacimiento')}}">
+                                    @error('fecha_nacimiento')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Ocupación</label>
-                                    <input class="form-control form-control-user" name="ocupacion" type="text" placeholder="Estudiante, Profesor, etc.">
+                                    <input class="form-control form-control-user" name="ocupacion" type="text" placeholder="Estudiante, Profesor, etc." value="{{old('ocupacion')}}">
+                                    @error('ocupacion')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Correo Electrónico</label>
-                                    <input class="form-control form-control-user" name="correo" type="email" placeholder="correo@correo.cl">
+                                    <input class="form-control form-control-user" name="correo" type="email" placeholder="correo@correo.cl" value="{{old('correo')}}">
+                                    @error('correo')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -94,25 +127,45 @@
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Teléfono</label>
-                                    <input class="form-control form-control-user" name="telefono" type="text" placeholder="+56912345678">
+                                    <input class="form-control form-control-user" name="telefono" type="text" placeholder="+56912345678" value="{{old('telefono')}}">
+                                    @error('telefono')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Contacto de emergencia</label>
-                                    <input class="form-control form-control-user" name="emergencia" type="text" placeholder="+56912345678">
+                                    <input class="form-control form-control-user" name="contacto_emergencia" type="text" placeholder="+56912345678" value="{{old('contacto_emergencia')}}">
+                                    @error('contacto_emergencia')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Dirección</label>
-                                    <input class="form-control form-control-user" name="direccion" type="text" placeholder="Calle #793, Los Ángeles">
+                                    <input class="form-control form-control-user" name="direccion" type="text" placeholder="Calle #793, Los Ángeles" value="{{old('direccion')}}">
+                                    @error('direccion')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1">Tutor</label>
-                                    <input class="form-control form-control-user" name="tutor" type="text" placeholder="Juan Suazo">
+                                    <input class="form-control form-control-user" name="tutor" type="text" placeholder="Juan Suazo" value="{{old('tutor')}}">
+                                    @error('tutor')
+                                        <span>
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             {{-- <div class="col-md-2">

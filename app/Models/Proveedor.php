@@ -13,6 +13,13 @@ class Proveedor extends Model
 
     protected $table = 'proveedors';
 
-    protected $filleable = ['nombre','rut'];
+    protected $fillable = ['nombre','rut'];
+
+
+    //relaciones
+
+    public function implementos() {
+    	return $this->hasMany(Implemento::class, 'id_proveedor');
+    }
 
 }

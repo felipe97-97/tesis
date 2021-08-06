@@ -24,7 +24,9 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        $proveedores = Proveedor::orderBy('nombre')->cursorPaginate(9);
+
+        return view('proveedores/index',compact('proveedores'));
     }
 
     /**
@@ -34,7 +36,14 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        $validated = request()->validate([
+            'nombre' => 'required|min:2',
+            'rut' => 'required|min:8',
+        ]);
+
+        Proveedor::create($validated);
+
+        return redirect()->route('proveedores.index')->with('success', 'Proveedor agregado correctamente');
     }
 
     /**
@@ -79,7 +88,17 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, Proveedor $proveedor)
     {
-        //
+        $validated = request()->validate([
+            'nombre' => 'required|min:2',
+            'rut' => 'required|min:8',
+        ]);
+
+        $proveedor = Proveedor::find(request('id_proveedor'));
+        $proveedor->nombre = $validated['nombre'];
+        $proveedor->rut = $validated['rut'];
+        $proveedor->update();
+
+        return redirect()->route('proveedores.index')->with('success', 'Proveedor modificado correctamente');
     }
 
     /**

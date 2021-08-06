@@ -7,13 +7,32 @@
             </div>
             {!!Form::model($odontograma,['method'=>'GET','route'=>['odontograma.update',$odontograma->id]])!!}
             <div class="modal-body">
+                <label for="exampleFormControlInput1">Estado Actual</label><br>
+                <div class="container">
+                    <label for="estado">Estado : {{$odontograma->estado ? $odontograma->estado : 'Por defecto'}}</label><br>
+                    <label for="estado">Superficie : 
+                        @if($odontograma->profundidad == 'a') Todas las superficies @endif
+                        @if(str_contains($odontograma->profundidad, 'bcdef')) Todas las superficies
+                        @else  
+                            @if(str_contains($odontograma->profundidad, 'b')) Oclusal,  @endif
+                            @if(str_contains($odontograma->profundidad, 'c')) Vesticular, @endif
+                            @if(str_contains($odontograma->profundidad, 'd')) Distal,  @endif
+                            @if(str_contains($odontograma->profundidad, 'e')) Palatino,  @endif
+                            @if(str_contains($odontograma->profundidad, 'f')) Mesial  @endif
+                            @if($odontograma->profundidad == '') No aplica  @endif
+                        @endif
+                    </label>
+                </div>
+                <hr>
+
+
                 <input class="form-control" name="id_odontograma" type="text" value="{{$odontograma->id}}" hidden>
                 <input class="form-control" name="id_paciente" type="text" value="{{$odontograma->ficha->paciente->id}}" hidden>
 
                 <label for="exampleFormControlInput1">Estado</label>
                 
                 <select class="form-control form-control-user" name="estado">
-                    <option defaultValue hidden>Seleccione Estado</option>
+                    <option defaultValue hidden>{{$odontograma->estado ? $odontograma->estado : 'Seleccione Estado'}}</option>
                     <option values="caries">Caries</option>
                     <option values="resina-adaptada">Resina Adaptada</option>
                     <option values="resina-desadaptada">Resina Desadaptada</option>

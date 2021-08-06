@@ -15,12 +15,27 @@ $proveedores = Proveedor::all();
 
                 <label for="exampleFormControlInput1">Item</label>
                 <input class="form-control" name="item" type="text" value="{{$inventario->item}}">
+                @error('item')
+                    <span>
+                        <strong class="text-danger">{{ $message }}</strong>
+                    </span>
+                @enderror
                 </br>
                 <label for="exampleFormControlInput1">Marca</label>
                 <input class="form-control" name="marca" type="text" value="{{$inventario->marca}}">
+                @error('marca')
+                    <span>
+                        <strong class="text-danger">{{ $message }}</strong>
+                    </span>
+                @enderror
                 </br>
                 <label for="exampleFormControlInput1">Código</label>
                 <input class="form-control" name="codigo" type="text" value="{{$inventario->codigo}}" placeholder="Opcional - Ingrese Código">
+                @error('codigo')
+                    <span>
+                        <strong class="text-danger">{{ $message }}</strong>
+                    </span>
+                @enderror
                 </br>
                 <label for="exampleFormControlInput1">Proveedor</label>
                 <select class="form-control form-control-user" name="id_proveedor" required>

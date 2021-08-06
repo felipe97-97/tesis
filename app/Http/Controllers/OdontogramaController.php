@@ -18,54 +18,10 @@ class OdontogramaController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     public function detail($id)
     {
         $paciente = Paciente::find($id);
         return view('odontograma/detail', compact('paciente'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        
-
-       
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Odontograma  $odontograma
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Odontograma $odontograma)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Odontograma  $odontograma
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Odontograma $odontograma)
-    {
-        //
     }
 
     /**
@@ -117,18 +73,8 @@ class OdontogramaController extends Controller
         $odontograma->update();
 
         $paciente = Paciente::find($request->input('id_paciente'));
-        return redirect('/odontograma/detail/'.$paciente->id);
+        return redirect()->route('odontograma.detail',$paciente->id);
         
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Odontograma  $odontograma
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Odontograma $odontograma)
-    {
-        //
-    }
 }

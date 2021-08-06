@@ -60,10 +60,19 @@ Route::get('inventario/create', 'App\Http\Controllers\ImplementoController@creat
 Route::get('inventario/stock/{id}', 'App\Http\Controllers\ImplementoController@stock')->name('inventario.stock');
 Route::get('inventario/edit/{id}', 'App\Http\Controllers\ImplementoController@update')->name('inventario.update');
 
+
+Route::get('personal', 'App\Http\Controllers\PersonalController@index')->name('personal.index');
 Route::get('personal/new', 'App\Http\Controllers\PersonalController@new')->name('personal.new');
 Route::get('personal/create', 'App\Http\Controllers\PersonalController@create')->name('personal.create');
+Route::get('personal/detail/{id}', 'App\Http\Controllers\PersonalController@detail')->name('personal.detail');
+Route::get('personal/edit/{id}', 'App\Http\Controllers\PersonalController@update')->name('personal.update');
 
 Route::get('pacientes', 'App\Http\Controllers\PacienteController@index')->name('pacientes.index');
 
+Route::get('proveedores', 'App\Http\Controllers\ProveedorController@index')->name('proveedores.index');
+Route::get('proveedores/create', 'App\Http\Controllers\ProveedorController@create')->name('proveedores.create');
+Route::get('proveedores/edit/{id}', 'App\Http\Controllers\ProveedorController@update')->name('proveedores.update');
+
 Route::get('/home', 'App\Http\Controllers\HomeController@home');
+Route::get('/edit_password/{id}', 'App\Http\Controllers\HomeController@editPassword')->name('home.update_pass');
 Route::get('/', 'App\Http\Controllers\HomeController@home');

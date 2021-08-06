@@ -19,14 +19,10 @@ class PersonalController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $colaboradores = Personal::orderBy('cargo')->cursorPaginate(9);
+        return view('personal/index', compact('colaboradores'));
     }
 
     
@@ -41,17 +37,19 @@ class PersonalController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
-        $personal = new Personal();
-        $personal->nombre = $request->input('nombres');
-        $personal->apellido = $request->input('apellidos');
-        $personal->rut = $request->input('rut');
-        $personal->telefono = $request->input('telefono');
-        $personal->correo = $request->input('correo');
-        $personal->sexo = $request->input('sexo');
-        $personal->direccion = $request->input('direccion');
-        $personal->cargo = $request->input('cargo');
-        $personal->save();
+    {   
+        $validated = request()->validate([
+            'nombre' => 'required|min:3',
+            'apellido' => 'required|min:3',
+            'rut' => 'required|min:8',
+            'sexo' => 'required',
+            'cargo' => 'required|min:3',
+            'correo' => 'required|email',
+            'telefono' => 'required|min:8',
+            'direccion' => 'required|min:3',
+        ]);
+
+        Personal::create($validated);
 
         $personal_nuevo = Personal::where('rut',$request->input('rut'))->first();
 
@@ -64,62 +62,41 @@ class PersonalController extends Controller
         $usuario->id_personal = $personal_nuevo->id;
         $usuario->save();
 
-        return redirect('/personal/new')->with('success', 'Trabajador agregado correctamente');
+        return redirect()->route('personal.index')->with('success', 'Colaborador agregado correctamente');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function update() 
     {
-        //
+        $validated = request()->validate([
+            'nombre' => 'required|min:3',
+            'apellido' => 'required|min:3',
+            'rut' => 'required|min:8',
+            'sexo' => 'required',
+            'cargo' => 'required|min:3',
+            'correo' => 'required|email',
+            'telefono' => 'required|min:8',
+            'direccion' => 'required|min:3',
+        ]);
+
+        $colaborador = Personal::find(request('id_colaborador'));
+        $colaborador->nombre = $validated['nombre'];
+        $colaborador->apellido = $validated['apellido'];
+        $colaborador->rut = $validated['rut'];
+        $colaborador->sexo = $validated['sexo'];
+        $colaborador->cargo = $validated['cargo'];
+        $colaborador->correo = $validated['correo'];
+        $colaborador->telefono = $validated['telefono'];
+        $colaborador->direccion = $validated['direccion'];
+        $colaborador->update();
+
+        return redirect()->route('personal.detail',request('id_colaborador'))->with('success', 'Ficha Colaborador modificada correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Personal  $personal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Personal $personal)
+    public function detail($id)
     {
-        //
+        $colaborador = Personal::find($id);
+
+        return view('personal/detail', compact('colaborador'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Personal  $personal
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Personal $personal)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Personal  $personal
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Personal $personal)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Personal  $personal
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Personal $personal)
-    {
-        //
-    }
 }

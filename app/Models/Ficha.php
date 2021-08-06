@@ -13,7 +13,7 @@ class Ficha extends Model
 
     protected $table = 'fichas';
 
-    protected $filleable = ['id_paciente'];
+    protected $fillable = ['id_paciente'];
 
 
     //relaciones

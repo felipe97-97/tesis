@@ -19,13 +19,23 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Ítem</label>
-                                <input class="form-control form-control-user" name="item" type="text" required>
+                                <input class="form-control form-control-user" name="item" type="text" placeholder="Ingrese nombre ítem" required>
+                                @error('item')
+                                    <span>
+                                        <strong class="text-danger">{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Marca</label>
-                                <input class="form-control form-control-user" name="marca" type="text" required>
+                                <input class="form-control form-control-user" name="marca" type="text" placeholder="Ingrese marca" required>
+                                @error('marca')
+                                    <span>
+                                        <strong class="text-danger">{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -33,13 +43,23 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Código</label>
-                                <input class="form-control form-control-user" name="codigo" type="text" required>
+                                <input class="form-control form-control-user" name="codigo" type="text" placeholder="Opcional - Ingrese código">
+                                @error('codigo')
+                                    <span>
+                                        <strong class="text-danger">{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1">Cantidad</label>
-                                <input class="form-control form-control-user" name="cantidad" type="number" required>
+                                <input class="form-control form-control-user" name="cantidad" type="number" placeholder="Ingrese cantidad" required>
+                                @error('cantidad')
+                                    <span>
+                                        <strong class="text-danger">{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                     </div>

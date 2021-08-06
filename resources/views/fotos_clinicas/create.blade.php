@@ -35,7 +35,7 @@
                 <div class="card-body">
                     {!!Form::open(['url'=>'foto_clinica/create', 'enctype' => 'multipart/form-data','method'=>'POST', 'files'=>'true'])!!}
                     {{ csrf_field() }}
-                        <input class="form-control" name="id" type="text" value="{{$paciente->ficha->id}}" hidden>
+                        <input class="form-control" name="id_ficha" type="text" value="{{$paciente->ficha->id}}" hidden>
                         <input class="form-control" name="id_paciente" type="text" value="{{$paciente->id}}" hidden>
                         <div class="row">
                             <div class="col-md-8">

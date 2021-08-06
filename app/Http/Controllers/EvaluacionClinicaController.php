@@ -62,7 +62,7 @@ class EvaluacionClinicaController extends Controller
 
         EvaluacionClinica::create($validated);
 
-        return redirect()->route('fichas.detail',request('id_paciente'))->with('success', 'Anamnesis agregada correctamente');
+        return redirect()->route('fichas.detail',request('id_paciente'))->with('success', 'Evaluación clínica agregada correctamente');
     }
 
 
@@ -97,12 +97,17 @@ class EvaluacionClinicaController extends Controller
      */
     public function update(Request $request, EvaluacionClinica $evaluacionClinica)
     {
-        $evaluacionClinica = EvaluacionClinica::find($request->input('id_evaluacionClinica'));
-        $evaluacionClinica->fecha = $request->input('fecha');
-        $evaluacionClinica->actividad = $request->input('actividades');
+        $validated = request()->validate([
+            'fecha' => 'required|date',
+            'actividad' => 'required|min:3',
+        ]);
+
+        $evaluacionClinica = EvaluacionClinica::find(request('id_evaluacionClinica'));
+        $evaluacionClinica->fecha = $validated['fecha'];
+        $evaluacionClinica->actividad = $validated['actividad'];
         $evaluacionClinica->update();
 
-        return redirect('/evaluacion_clinica/detail/' . $request->input('id_evaluacionClinica'))->with('success', 'Evaluación Clínica modificada correctamente');
+        return redirect()->route('evaluacion_clinica.detail', request('id_evaluacionClinica'))->with('success', 'Evaluación Clínica modificada correctamente');
     }
 
     /**

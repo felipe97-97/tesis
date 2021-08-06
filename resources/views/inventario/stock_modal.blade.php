@@ -11,6 +11,11 @@
 
                 <label for="exampleFormControlInput1">Stock</label>
                 <input class="form-control" name="cantidad" type="number" value="{{$inventario->cantidad}}">
+                @error('cantidad')
+                    <span>
+                        <strong class="text-danger">{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
