@@ -27,9 +27,11 @@
                 <div class="card-header py-3 card-flex-tesis">
                     <h6 class="m-0 font-weight-bold text-primary">Implementos Registrados</h6>
                     
+                    @if(auth()->user()->personal->cargo == "Administrador" or auth()->user()->personal->cargo == "Administrativo")
                     <a class="btn btn-success btn-circle btn-lg" style="float: right" data-target="#create_modal" data-toggle="modal">
                         <i class="fas fa-plus"></i>
                     </a>
+                    @endif
                 </div>
                 <div class="card-body">
                     <input class="form-control form-control-user" type="text" placeholder="Buscar ..." style="float: right; margin-bottom: 15px" id="myInput" onkeyup="myFunction()">
@@ -63,9 +65,12 @@
                                     <a data-target="#stock_modal-{{$inventario->id}}" data-toggle="modal" class="btn btn-primary btn-circle">
                                         <i class="fas fa-dolly-flatbed"></i>
                                     </a>
+                                    
+                                    @if(auth()->user()->personal->cargo == "Administrador" or auth()->user()->personal->cargo == "Administrativo")
                                     <a data-target="#edit_modal-{{$inventario->id}}" data-toggle="modal" class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    @endif
                                 </td>
                             </tr>
                           @endforeach

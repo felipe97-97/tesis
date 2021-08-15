@@ -38,6 +38,7 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3 card-flex-tesis">
                     <h6 class="m-0 font-weight-bold text-primary">Detalles</h6>
+                    @if(auth()->user()->personal->cargo == "Odontólogo" or auth()->user()->personal->cargo == "Asistente Dental")
                     <div class="card-footer-tesis">
                         <a class="btn btn-warning btn-icon-split btn-sm" data-target="#edit_modal-{{$anamnesisOdontologica->id}}" data-toggle="modal">
                             <span class="icon text-white-50">
@@ -53,7 +54,9 @@
                             <span class="text">Eliminar</span>
                         </a>
                         @include('anamnesis_odontologica.delete_modal')
+                        
                     </div>
+                    @endif
                 </div>
                 <div class="card-body" style="padding: 5vh 5vw">
                     <div class="row" style="margin-top: 20px">

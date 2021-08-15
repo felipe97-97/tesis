@@ -43,10 +43,12 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3 card-flex-tesis">
                     <h6 class="m-0 font-weight-bold text-primary">Proveedores</h6>
-
+                    
+                    @if(auth()->user()->personal->cargo == "Administrador" or auth()->user()->personal->cargo == "Administrativo")
                     <a class="btn btn-success btn-circle btn-lg" style="float: right" data-target="#create_modal" data-toggle="modal">
                         <i class="fas fa-plus"></i>
                     </a>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -60,11 +62,13 @@
                                                 <div class="text-white-50 small">{{$proveedor->rut}}</div>
                                                 <div class="text-white-50 small">Implementos administrados: {{$proveedor->implementos->count()}}</div>
                                             </div>
+                                            @if(auth()->user()->personal->cargo == "Administrador" or auth()->user()->personal->cargo == "Administrativo")
                                             <a style="color: white; cursor: pointer" data-target="#edit_modal-{{$proveedor->id}}" data-toggle="modal">
                                                 <span class="icon text-white-100">
                                                     <i class="fas fa-edit" style="margin-left: 5px"></i>
                                                 </span>
                                             </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

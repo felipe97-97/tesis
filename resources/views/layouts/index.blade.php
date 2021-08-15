@@ -79,7 +79,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrar pacientes:</h6>
+                        @if(auth()->user()->personal->cargo == "Administrativo")
                         <a class="collapse-item {{ request()->is('fichas/new') ? 'active' : '' }}" href="{{url('/fichas/new')}}">Crear Nuevo</a>
+                        @endif
                         <a class="collapse-item {{ request()->is('pacientes') ? 'active' : '' }}" href="{{url('/pacientes')}}">Listado</a>
                     </div>
                 </div>
@@ -114,7 +116,8 @@
                     </div>
                 </div>
             </li>
-
+            
+            @if(auth()->user()->personal->cargo == "Administrador")
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapsePersonal"
@@ -130,11 +133,13 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrar Personal:</h6>
-                        <a class="collapse-item {{ request()->is('personal/new') ? 'active' : '' }}" href="{{url('/personal/new')}}">Agregar Colaborador</a>
+                            <a class="collapse-item {{ request()->is('personal/new') ? 'active' : '' }}" href="{{url('/personal/new')}}">Agregar Colaborador</a>
                         <a class="collapse-item {{ request()->is('personal') ? 'active' : '' }}" href="{{url('/personal')}}">Listado</a>
                     </div>
                 </div>
             </li>
+            
+            @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

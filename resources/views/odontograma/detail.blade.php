@@ -35,7 +35,9 @@
                     <input class="form-control" name="id_paciente" type="text" value="{{$paciente->id}}" hidden>
                     <label for="exampleFormControlSelect1">Permanente</label>
                         @foreach($paciente->ficha->odontograma as $odontograma)
-                            @include('odontograma.modal')
+                            @if(auth()->user()->personal->cargo != "Administrativo")
+                                @include('odontograma.modal')   
+                            @endif
                             @if($odontograma->pieza == '1-8' or $odontograma->pieza == '4-8' or $odontograma->pieza == '5-5' or $odontograma->pieza == '8-5')
                                 <div class="row" style="display: flex; align-items: center; justify-content: center">
                             @endif

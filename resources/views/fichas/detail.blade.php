@@ -41,14 +41,16 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3 card-flex-tesis">
                     <h6 class="m-0 font-weight-bold text-primary">Ficha del paciente</h6>
-                    <div class="card-footer-tesis">
-                        <a class="btn btn-warning btn-icon-split btn-sm" data-target="#edit_modal-{{$paciente->id}}" data-toggle="modal">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-edit"></i>
-                            </span>
-                            <span class="text">Editar</span>
-                        </a>
-                    </div>
+                    @if(auth()->user()->personal->cargo != 'Administrador')
+                        <div class="card-footer-tesis">
+                            <a class="btn btn-warning btn-icon-split btn-sm" data-target="#edit_modal-{{$paciente->id}}" data-toggle="modal">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                                <span class="text">Editar</span>
+                            </a>
+                        </div>
+                    @endif
                 </div>
                 @include('fichas.edit_modal')
                 <div class="card-body" style="padding: 5vh">
@@ -126,6 +128,8 @@
             </div>
         
         </div>
+        
+        @if(auth()->user()->personal->cargo != 'Administrador')
         <div class="col-lg-3">
             <!-- Card Fotografías Clínicas -->
             <div class="card shadow mb-4" style="height: calc(100% - 25px)">
@@ -172,7 +176,9 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
+    @if(auth()->user()->personal->cargo != 'Administrador')
     <div class="row">
 
         <div class="col-lg-12">
@@ -185,6 +191,7 @@
                         <div class="card-header py-3 card-flex-tesis">
                             <h6 class="m-0 font-weight-bold text-primary">Anamnesis</h6>
                             
+                            @if(auth()->user()->personal->cargo == "Odontólogo" or auth()->user()->personal->cargo == "Asistente Dental")
                             <div class="card-footer-tesis">
                                 <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/anamnesis/new/'.$paciente->id)}}">
                                     <span class="icon text-white-50">
@@ -193,6 +200,7 @@
                                     <span class="text">Añadir</span>
                                 </a>
                             </div>
+                            @endif
                         </div>
                         <div class="card-body">
                             @if($paciente->ficha->anamnesis->count() > 0)
@@ -233,6 +241,8 @@
                     <div class="card shadow mb-4 height-card-tesis">
                         <div class="card-header py-3 card-flex-tesis">
                             <h6 class="m-0 font-weight-bold text-primary">Anamnesis Odontológica</h6>
+
+                            @if(auth()->user()->personal->cargo == "Odontólogo" or auth()->user()->personal->cargo == "Asistente Dental")
                             <div class="card-footer-tesis">
                                 <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/anamnesis_odontologica/new/'.$paciente->id)}}">
                                     <span class="icon text-white-50">
@@ -241,6 +251,7 @@
                                     <span class="text">Añadir</span>
                                 </a>
                             </div>
+                            @endif
                         </div>
                         <div class="card-body">
                             @if($paciente->ficha->anamnesis_odontologica->count() > 0)
@@ -308,7 +319,7 @@
                     <div class="card shadow mb-4 height-card-tesis">
                         <div class="card-header py-3 card-flex-tesis">
                             <h6 class="m-0 font-weight-bold text-primary">Evaluación Clínica</h6>
-                            
+                            @if(auth()->user()->personal->cargo == "Odontólogo" or auth()->user()->personal->cargo == "Asistente Dental")
                             <div class="card-footer-tesis">
                                 <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/evaluacion_clinica/new/'.$paciente->id)}}">
                                     <span class="icon text-white-50">
@@ -317,6 +328,7 @@
                                     <span class="text">Añadir</span>
                                 </a>
                             </div>
+                            @endif
                         </div>
                         <div class="card-body">
                             @if($paciente->ficha->evaluacion_clinica->count() > 0)
@@ -356,7 +368,7 @@
                     <div class="card shadow mb-4 height-card-tesis">
                         <div class="card-header py-3 card-flex-tesis">
                             <h6 class="m-0 font-weight-bold text-primary">Radiografías</h6>
-                            
+                            @if(auth()->user()->personal->cargo == "Odontólogo" or auth()->user()->personal->cargo == "Asistente Dental")
                             <div class="card-footer-tesis">
                                 <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/radiografia/new/'.$paciente->id)}}">
                                     <span class="icon text-white-50">
@@ -365,6 +377,7 @@
                                     <span class="text">Añadir</span>
                                 </a>
                             </div>
+                            @endif
                         </div>
                         <div class="card-body">
                             @if($paciente->ficha->radiografias->count() > 0)
@@ -405,7 +418,7 @@
                     <div class="card shadow mb-4 height-card-tesis">
                         <div class="card-header py-3 card-flex-tesis">
                             <h6 class="m-0 font-weight-bold text-primary">Fotografías Clínicas</h6>
-                            
+                            @if(auth()->user()->personal->cargo == "Odontólogo" or auth()->user()->personal->cargo == "Asistente Dental")
                             <div class="card-footer-tesis">
                                 <a class="btn btn-success btn-icon-split btn-sm" href="{{url('/foto_clinica/new/'.$paciente->id)}}">
                                     <span class="icon text-white-50">
@@ -414,6 +427,7 @@
                                     <span class="text">Añadir</span>
                                 </a>
                             </div>
+                            @endif
                         </div>
                         <div class="card-body">
                             @if($paciente->ficha->fotografias_clinicas->count() > 0)
@@ -452,7 +466,7 @@
             </div>
         </div>
     </div>
-
+    @endif
 </div>
 
 
