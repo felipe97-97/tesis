@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
+use App\Models\Paciente;
+use App\Models\Personal;
+use App\Mail\AgendaCreate;
 
 class AgendaController extends Controller
 {
@@ -61,6 +64,11 @@ class AgendaController extends Controller
         ]);
 
         Agenda::create($validated);
+
+        $paciente = Paciente::find($validated['id_paciente']);
+        $colaborador = Personal::find($validated['id_personal']);
+
+        \Mail::to($paciente->correo)->send(new AgendaCreate($validated, $paciente, $colaborador));
 
         return redirect()->route('agenda.index')->with('success', 'Hora agendada correctamente');
     }
