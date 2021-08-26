@@ -14,10 +14,12 @@
   background-image: linear-gradient(135deg, #4e73df 0%, rgba(128, 57, 218, 0.8) 100%) !important;
   margin-bottom: 20px;">
   
-<img src="https://raw.githubusercontent.com/felipe97-97/tesis/327b4c44e415ce7e2723216e7992ccfc654c1aeb/public/emails/create.svg" alt="create" style="width: 25rem;">
+<div style="background-color: white; padding: 30px 20px; border-radius: 50%"> 
+<img src="https://raw.githubusercontent.com/felipe97-97/tesis/master/public/emails/logo.png" alt="create" style="width: 15rem;">
+</div>
 <h1 style="color: white">¡Hola {{$paciente->nombre}}!</h1>
 </div>
-
+<img src="https://raw.githubusercontent.com/felipe97-97/tesis/327b4c44e415ce7e2723216e7992ccfc654c1aeb/public/emails/create.svg" alt="create" style="width: 25rem;">
 <h2>
   Tienes una hora agendada en Vivadent
 </h2>
