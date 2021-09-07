@@ -10861,19 +10861,19 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/7ByfI6Fpi90/600x800");
+  background: url("https://raw.githubusercontent.com/felipe97-97/tesis/master/public/emails/banner.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("https://source.unsplash.com/7ByfI6Fpi90/600x800");
+  background: url("https://raw.githubusercontent.com/felipe97-97/tesis/master/public/emails/banner.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url("https://source.unsplash.com/7ByfI6Fpi90/600x800");
+  background: url("https://raw.githubusercontent.com/felipe97-97/tesis/master/public/emails/banner.jpg");
   background-position: center;
   background-size: cover;
 }
